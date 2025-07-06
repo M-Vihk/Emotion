@@ -111,8 +111,30 @@ footer {
 h1{
     text-align: center;
     margin-top: 20px;
-    color: #2f5f98;
-    font-size: 50px;
+    color: #9cccd5;
+}
+
+hr{
+    margin-top: 10px;
+}
+
+.sol{
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;  /* Centraliza horizontalmente */
+    align-items: center;      /* Centraliza verticalmente (se necessário) */
+}
+
+.frase{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;  /* Centraliza horizontalmente */
+    align-items: center;      /* Centraliza verticalmente (se necessário) */
+}
+
+h2{
+    text-align: center;
+    color: #9cccd5;
 }
 
 .botao-cadastrar:hover, .botao-entrar:hover  {
@@ -127,80 +149,41 @@ h1{
     margin-top: 30px;
 }
 
-  .botao-entrar {
+.botao-cadastrar {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background-color: #2d8bba; 
-    color: #ffdd78;
+    background-color: #79b8f9; 
+    color: #ffeefe;
     padding: 10px 15px;
     border-radius: 30px;
     text-decoration: none;
     font-weight: bold;
     font-family: Arial, sans-serif;
     transition: background-color 0.3s ease;
-    margin-top: 5px ;
-    margin-bottom: 50px;
-    width: 250px;
-    height: 40px;
-    font-size: 25px;
+    margin-top: 20px;
+    width: 300px;
+    height: 50px;
+    font-size: 50px;
   }
 
-  .container {
-    width: 400px;
-    margin: 50px auto;
-    background-color: #ffeefe;
-    padding: 30px;
-    border-radius: 20px;
-    color: #2f5f98;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .container input[type="email"], .container input[type="password"] {
-  width: 90%;
-  padding: 12px 20px;
-  margin-top: 10px;
-  margin-bottom: 1px;
-  border: none;
-  border-radius: 20px;
-  font-size: 30px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s ease;
-  outline: none;
-  background-color: #e2ccff;
-  color: #3178c6;
-  
-}
-
-.container input[type="email"]:focus, .container input[type="password"]:focus {
-    box-shadow: 0 0 8px #79b8f9;
-  }
-  
-  button.botao-entrar {
-    all: unset; /* Remove estilo padrão do botão */
+  .botao-entrar {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background-color: #2d8bba; 
-    color: #ffdd78;
+    background-color: #e2ccff; 
+    color: #3178c6;
     padding: 10px 15px;
     border-radius: 30px;
+    text-decoration: none;
     font-weight: bold;
     font-family: Arial, sans-serif;
     transition: background-color 0.3s ease;
-    width: 250px;
-    height: 40px;
-    font-size: 25px;
-    cursor: pointer;
+    margin-top: 10px ;
+    margin-bottom: 50px;
+    width: 300px;
+    height: 50px;
+    font-size: 50px;
   }
-  
-  button.botao-entrar:hover {
-    background-color: #28de62;
-  }
-  
-  
