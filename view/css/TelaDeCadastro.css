@@ -136,7 +136,7 @@ h1{
     gap: 15px;
   }
   
-  .container input[type="email"], .container input[type="password"], .container input[type="text"] {
+  .container input[type="email"], .container input[type="password"], .container input[type="text"], .container input[type="date"], .container select{
   width: 90%;
   padding: 12px 20px;
   margin-top: 10px;
@@ -178,5 +178,3 @@ h1{
   button.botao-entrar:hover {
     background-color: #28de62;
   }
-  
-  

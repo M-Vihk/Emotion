@@ -1,42 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Cadastro</title>
-    <link rel="stylesheet" href="/view/css/TelaDeCadastro.css">
-    <link rel="website icon" type="png" href="/view/img/SolIcone.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tela de Cadastro</title>
+  <link rel="stylesheet" href="/view/css/TelaDeCadastro.css">
+  <link rel="website icon" type="png" href="/view/img/SolIcone.png">
 </head>
+
 <body>
-    <header>
-        <div class="logo">
-          <img src="/view/img/sol.png" alt="Logo do site">
-        </div>
-      </header>
-<main>
+  <header>
+    <div class="logo">
+      <img src="/view/img/sol.png" alt="Logo do site">
+    </div>
+  </header>
+  <main>
     <div class="container">
-        <h1>Cadastro </h1>
+      <h1>Cadastro </h1>
 
-        <div id="mensagem" style="display: none;"></div>
+      <div id="mensagem" style="display: none;"></div>
 
-        <form class="form-login" action="/view/html/TelaDeEntrar.html" method="POST">
-            <input type="text" id="nome" name="nome" placeholder="Nome" required>
-            <input type="email" id="email" name="email" placeholder="Email" required>
-            <input type="password" id="senha" name="senha" placeholder="Senha" required>
-            <input type="password" id="confirmar-senha" name="confirmar-senha" placeholder="Confirmar senha" required>
-          
-            <div class="botoes">
-              <button type="submit" class="botao-entrar">Cadastrar</button>
-            </div>
-          </form>
-          
-      </div>
-      
-</main>
-<script src="/view/scripts/validarSenha.js"></script>
+      <form id="form-login">
+        <input type="text" id="nome" name="nome" placeholder="Nome" required>
+        <input type="email" id="email" name="email" placeholder="Email" required>
+        <input type="password" id="senha" name="senha" placeholder="Senha" required>
+        <input type="password" id="confirmar-senha" name="confirmar-senha" placeholder="Confirmar senha" required>
 
-    <footer>
-        <p>&copy; Copyright 2025 Black Sheep</p>  
-    </footer>     
+        <input type="date" id="data-nascimento" name="data-nascimento" required />
+
+        <select id="genero" name="genero" required>
+          <option value="">Selecione o gênero</option>
+          <option value="masculino">Masculino</option>
+          <option value="feminino">Feminino</option>
+          <option value="outro">Outro</option>
+        </select>
+
+        <div class="botoes">
+          <button type="submit" class="botao-entrar">Cadastrar</button>
+        </div>
+      </form>
+
+    </div>
+
+  </main>
+  
+  <footer>
+    <p>&copy; Copyright 2025 Black Sheep</p>
+  </footer>
+
+  <script type="module" src="/view/script/validarCadastro.js"></script>
 </body>
+
 </html>
