@@ -25,60 +25,8 @@
         <h3>Informe aqui nos campos abaixo como você está se sentindo para as emoções abaixo:</h3>
         <center>
         <form id="formEmocoes">
-            <div class="emocao" >
-              <h3>Alegria:</h3>
-              <div class="notas">
-                <label><input type="radio" name="alegria" value="1">💀<span class="tooltip">1</span></label>
-                <label><input type="radio" name="alegria" value="2">🫠<span class="tooltip">2</span></label>
-                <label><input type="radio" name="alegria" value="3">😐<span class="tooltip">3</span></label>
-                <label><input type="radio" name="alegria" value="4">😀<span class="tooltip">4</span></label>
-                <label><input type="radio" name="alegria" value="5">🤩<span class="tooltip">5</span></label>
-              </div>
-            </div>
+          <div id="emocoesContainer"></div>
 
-            <div class="emocao">
-              <h3>Tristeza:</h3>
-              <div class="notas">
-                <label><input type="radio" name="tristeza" value="1">💀<span class="tooltip">1</span></label>
-                <label><input type="radio" name="tristeza" value="2">🫠<span class="tooltip">2</span></label>
-                <label><input type="radio" name="tristeza" value="3">😐<span class="tooltip">3</span></label>
-                <label><input type="radio" name="tristeza" value="4">😀<span class="tooltip">4</span></label>
-                <label><input type="radio" name="tristeza" value="5">🤩<span class="tooltip">5</span></label>
-              </div>
-            </div>
-          
-            <div class="emocao">
-                <h3>Ansiedade:</h3>
-                <div class="notas">
-                  <label><input type="radio" name="ansiedade" value="1">💀<span class="tooltip">1</span></label>
-                  <label><input type="radio" name="ansiedade" value="2">🫠<span class="tooltip">2</span></label>
-                  <label><input type="radio" name="ansiedade" value="3">😐<span class="tooltip">3</span></label>
-                  <label><input type="radio" name="ansiedade" value="4">😀<span class="tooltip">4</span></label>
-                  <label><input type="radio" name="ansiedade" value="5">🤩<span class="tooltip">5</span></label>
-                </div>
-              </div>
-
-              <div class="emocao">
-                <h3>Ânimo:</h3>
-                <div class="notas">
-                  <label><input type="radio" name="ânimo" value="1">💀<span class="tooltip">1</span></label>
-                  <label><input type="radio" name="ânimo" value="2">🫠<span class="tooltip">2</span></label>
-                  <label><input type="radio" name="ânimo" value="3">😐<span class="tooltip">3</span></label>
-                  <label><input type="radio" name="ânimo" value="4">😀<span class="tooltip">4</span></label>
-                  <label><input type="radio" name="ânimo" value="5">🤩<span class="tooltip">5</span></label>
-                </div>
-              </div>
-
-              <div class="emocao">
-                <h3>Estresse:</h3>
-                <div class="notas">
-                  <label><input type="radio" name="estresse" value="1">💀 <span class="tooltip">1</span></label>
-                  <label><input type="radio" name="estresse" value="2">🫠 <span class="tooltip">2</span></label>
-                  <label><input type="radio" name="estresse" value="3">😐 <span class="tooltip">3</span></label>
-                  <label><input type="radio" name="estresse" value="4">😀 <span class="tooltip">4</span></label>
-                  <label><input type="radio" name="estresse" value="5">🤩 <span class="tooltip">5</span></label>
-                </div>
-              </div>
         </center>   
         <center>
             <button type="submit" class="botao-enviar">Enviar</button>
@@ -91,6 +39,33 @@
 </main>
     <footer>
         <p>&copy; Copyright 2025 Black Sheep</p>  
-    </footer>     
+    </footer>  
+    <script>
+      const container = document.getElementById('emocoesContainer');
+      const emocoes = JSON.parse(localStorage.getItem('emocoesSelecionadas')) || [];
+    
+      if (emocoes.length === 0) {
+        container.innerHTML = "<p>Nenhuma emoção selecionada.</p>";
+      } else {
+        emocoes.forEach(emocao => {
+          const blocos = `
+            <div class="emocao">
+              <h3>${emocao.charAt(0).toUpperCase() + emocao.slice(1)}:</h3>
+              <div class="notas">
+                ${[1, 2, 3, 4, 5].map(n => `
+                  <label>
+                    <input type="radio" name="${emocao}" value="${n}" required>
+                    ${["💀", "🫠", "😐", "😀", "🤩"][n - 1]}
+                    <span class="tooltip">${n}</span>
+                  </label>
+                `).join('')}
+              </div>
+            </div>
+          `;
+          container.insertAdjacentHTML('beforeend', blocos);
+        });
+      }
+    </script>
+       
 </body>
 </html>
