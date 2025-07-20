@@ -1,17 +1,17 @@
 header{
-    background-color: #9cccd5; /* Muda a cor do fundo da header */
-    font-size: 250%; /* Muda o tamanho do texto da header */
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 30px;
-    border-bottom: 1px solid #ccc; 
+  background-color: #9cccd5; /* Muda a cor do fundo da header */
+  font-size: 200%; /* Muda o tamanho do texto da header */
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  border-bottom: 1px solid #ccc; 
 }
 
 .logo img {
-    height: 120px;
-  }
+  height: 100px;
+}
 
  *{
     margin: 0;

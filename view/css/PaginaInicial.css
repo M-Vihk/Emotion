@@ -1,6 +1,6 @@
 header{
     background-color: #9cccd5; /* Muda a cor do fundo da header */
-    font-size: 250%; /* Muda o tamanho do texto da header */
+    font-size: 200%; /* Muda o tamanho do texto da header */
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
     display: flex;
     justify-content: space-between;
@@ -10,7 +10,7 @@ header{
 }
 
 .logo img {
-    height: 120px;
+    height: 100px;
   }
 
  *{
