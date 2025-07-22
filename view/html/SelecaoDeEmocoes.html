@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nota Emocional</title>
+    <title>Seleção de Emoções</title>
     <link rel="stylesheet" href="/view/css/SelecaoDeEmocoes.css">
     <link rel="website icon" type="png" href="/view/img/SolIcone.png">
 </head>
@@ -83,16 +83,10 @@
       localStorage.setItem('emocoesSelecionadas', JSON.stringify(emocoesSelecionadas));
   
       // redireciona para a página 2
-      window.location.href = "nota-emocional.html"; // substitua pelo caminho correto da Página 2
+      window.location.href = "view/html/NotaEmocional.html"; // substitua pelo caminho correto da Página 2
     });
   </script>
-  <script>
-    document.getElementById("form-login").addEventListener("submit", function(event) {
-      event.preventDefault(); // impede o envio tradicional do formulário
-      // Aqui você pode validar os dados ou fazer o que quiser com os checkboxes
-      // Depois redireciona:
-      window.location.href = "view/html/nota-emocional.html"; // substitua pelo nome da sua página de destino
-    });
-  </script>
+ 
+  
   
 </html>
