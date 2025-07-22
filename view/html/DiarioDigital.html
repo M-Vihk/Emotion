@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diário Virtual</title>
+  <link rel="stylesheet" href="../CSSs/diario.css">
+  <link rel="icon" type="png" href="../Imagens/SolIcone.png">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="../Imagens/sol.png" alt="Logo do site">
+    </div>
+    <nav>
+      <a href="index.html">Página Inicial</a>
+      <a href="estatisticas.html">Estatísticas</a>
+      <a href="file:///C:/Users/Cliente/Downloads/Emotion-main%20(1)/Emotion-main/view/HTMLs/diario.html">Diário</a>
+      <a href="file:///C:/Users/Cliente/Downloads/Emotion-main%20(1)/Emotion-main/view/HTMLs/TelaPerfilUsuario.html">Usuário</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Diário Virtual</h1>
+    <div class="novo-diario-container">
+      <button id="novo-diario">Novo Diário</button>
+    </div>
+    <div class="diario" id="diario-container">
+      <input type="text" id="titulo-diario" placeholder="Título do Diário" 
+      style="font-size: 1.2rem; padding: 10px; margin-bottom: 10px; border-radius: 8px; border: 1px solid #ccc; width: 100%;">
+
+      <label for ="entry-date">Data:</label>
+      <input type="date" id="entry-date" name="entry-date" required>
+
+      <label for="entry-content">Pensamentos:</label>
+      <textarea placeholder="Como foi seu dia?"></textarea>
+
+      <button onclick="salvarEntrada()">Salvar</button>
+      <button onclick="editarEntrada()">Editar</button>
+      <button onclick="excluirEntrada()">Excluir</button>
+
+    </div>
+  </main>
+    <footer>
+        <p>&copy; Copyright 2025 Black Sheep</p>  
+    </footer>
+</body>
+</html>
