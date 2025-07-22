@@ -1,0 +1,237 @@
+/* Estilo do cabeçalho */
+header{
+  background-color: #9cccd5; /* Muda a cor do fundo da header */
+  font-size: 250%; /* Muda o tamanho do texto da header */
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  border-bottom: 1px solid #ccc;
+}
+
+.logo img {
+  height: 120px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 30px; /* Ajusta o espaçamento horizontal entre as palavras*/
+  height: 100px; /* Ajusta o espaçamento vertical das palavras com o header*/
+  justify-content: right;
+  background-color: #9cccd5;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.logo{
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 10px;
+}
+
+a {
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  color: #3178c6;
+  font-size: 100%;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+a:hover {
+  background-color: rgba(255, 255, 255, 0.723);
+  color: #3178c6; /* A cor do fundo da header, pra contrastar */
+  border-radius: 40px;
+  box-shadow: 0 0 20px white;
+}
+
+html,body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;  /* centraliza horizontalmente */
+  align-items: center;      /* centraliza verticalmente */
+  font-family: 'Georgia', serif;
+
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+/* Estilo do diário */
+.diario {
+  background: linear-gradient(to right, #fffaf0 50%, #fffaf0 50%);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
+  width: 80%;
+  max-width: 800px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 12px;
+  position: relative;
+  border-right: 70px;
+}
+
+.diario textarea {
+  flex-grow: 1;
+  border: none;
+  resize: none;
+  padding: 1rem;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  background: repeating-linear-gradient(
+    #fffaf0,
+    #fffaf0 28px,
+    #e8dccc 29px,
+    #fffaf0 30px
+  );
+  color: #383838;
+  font-family: 'Georgia', serif;
+  border-left: 2px solid #c49e84;
+  border-right: 2px solid #c49e84;
+  outline: none;
+  border-radius: 6px;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Botões */
+button {
+  padding: 9px 5px;
+  margin: 4px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Botão Salvar */
+button[type="submit"],
+button[onclick*="salvarEntrada"] {
+  background-color: #79b8f9;
+  color: rgb(255, 255, 255);
+}
+
+button[type="submit"]:hover,
+button[onclick*="salvarEntrada"]:hover {
+  background-color: #3178c6;
+  transform: scale(1.03);
+}
+
+/* Botão Editar */
+button[onclick*="editarEntrada"] {
+  background-color: #ffd36f;
+  color: #4a3f1f;
+}
+
+button[onclick*="editarEntrada"]:hover {
+  background-color: #ffbb00;
+  transform: scale(1.03);
+}
+
+/* Botão Excluir */
+button[onclick*="excluirEntrada"] {
+  background-color: #f77979;
+  color: white;
+}
+
+button[onclick*="excluirEntrada"]:hover {
+  background-color: #d64545;
+  transform: scale(1.03);
+}
+
+footer {
+    background-color: #9cccd5;
+    color: #3178c6;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+/* CSS para adaptar a telas pequenas:*/
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;
+    font-size: 160%; /* Reduz o tamanho do texto */
+  }
+  
+  .logo {
+    display: flex;
+    justify-content: center;  /* Centraliza horizontalmente */
+    align-items: center;      /* Centraliza verticalmente (se necessário) */
+    width: 100%;
+  }
+    
+  .logo img {
+    height: 80px;
+  }
+  
+  nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    height: auto;
+    padding: 10px 0;
+  }
+  
+  nav a {
+    font-size: 90%;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+input[type="date"] {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+} 
+
+h1{
+  text-align: center;
+  margin-top: 20px;
+  color: #9cccd5;
+  margin-bottom: 20px;
+}
+
+hr{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 0; 
+}
+
+.sol{
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;  /* Centraliza horizontalmente */
+  align-items: center;      /* Centraliza verticalmente (se necessário) */
+}
+
