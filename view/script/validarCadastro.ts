@@ -1,9 +1,9 @@
-import { Usuario } from "../../model/Usuarios.js"; // certifique-se que o nome está certo!
+import { SupabaseService } from "../../service/SupabaseService.js";
 
 const form = document.querySelector("#form-login") as HTMLFormElement;
 const mensagem = document.querySelector("#mensagem") as HTMLDivElement;
 
-form.addEventListener("submit", (e: Event) => {
+form.addEventListener("submit", async (e: Event) => {
   e.preventDefault();
 
   const nome = (document.querySelector("#nome") as HTMLInputElement).value.trim();
@@ -13,7 +13,7 @@ form.addEventListener("submit", (e: Event) => {
   const dataNasc = (document.querySelector("#data-nascimento") as HTMLInputElement).value;
   const genero = (document.querySelector("#genero") as HTMLSelectElement).value;
 
-  if (senha !== confirmarSenha) {
+  if (senha != confirmarSenha) {
     mostrarErro("As senhas não coincidem.");
     return;
   }
@@ -22,31 +22,13 @@ form.addEventListener("submit", (e: Event) => {
     mostrarErro("Preencha todos os campos.");
     return;
   }
-
-  const id = crypto.randomUUID();
-
   try {
-    const usuario = new Usuario(id, nome, dataNasc, genero);
-
-    // 🔽 Aqui você salva no localStorage
-    const usuarioParaSalvar = {
-      id,
-      nome,
-      email,
-      senha,
-      dataDeNascimento: dataNasc,
-      genero,
-    };
-
-    localStorage.setItem("usuarioCadastrado", JSON.stringify(usuarioParaSalvar));
-
-    console.log("Usuário salvo com sucesso:", usuarioParaSalvar);
-
-    // Redirecionar para a página inicial
+    SupabaseService.salvarNoBanco(nome,email,senha, dataNasc, genero);
     window.location.href = "/view/html/PaginaInicial.html";
-  } catch (erro: any) {
-    mostrarErro(erro.message || "Erro ao criar usuário.");
+  } catch (error: any) {
+    mostrarErro(error.message || 'Erro inesperado ao criar usuário.');
   }
+
 });
 
 function mostrarErro(msg: string): void {

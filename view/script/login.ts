@@ -18,7 +18,7 @@ form.addEventListener("submit", (e: Event) => {
 
   if (email === usuario.email && senha === usuario.senha) {
     console.log("Login bem-sucedido!");
-    window.location.href = "/view/html/PaginaInicial.html"; // ou outra página inicial
+    window.location.href = "/view/html/PaginaInicial.html"; 
   } else {
     mostrarErro("Email ou senha incorretos.");
   }
