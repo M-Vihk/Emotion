@@ -15,33 +15,138 @@
     <nav>
       <a href="index.html">Página Inicial</a>
       <a href="estatisticas.html">Estatísticas</a>
-      <a href="file:///C:/Users/Cliente/Downloads/Emotion-main%20(1)/Emotion-main/view/HTMLs/diario.html">Diário</a>
-      <a href="file:///C:/Users/Cliente/Downloads/Emotion-main%20(1)/Emotion-main/view/HTMLs/TelaPerfilUsuario.html">Usuário</a>
+      <a href="diario.html">Diário</a>
+      <a href="TelaPerfilUsuario.html">Usuário</a>
     </nav>
   </header>
+
   <main>
     <h1>Diário Virtual</h1>
-    <div class="novo-diario-container">
-      <button id="novo-diario">Novo Diário</button>
-    </div>
+    <div class="novo-diario-container"></div>
+
     <div class="diario" id="diario-container">
       <input type="text" id="titulo-diario" placeholder="Título do Diário" 
       style="font-size: 1.2rem; padding: 10px; margin-bottom: 10px; border-radius: 8px; border: 1px solid #ccc; width: 100%;">
 
-      <label for ="entry-date">Data:</label>
+      <label for="entry-date">Data:</label>
       <input type="date" id="entry-date" name="entry-date" required>
 
       <label for="entry-content">Pensamentos:</label>
       <textarea placeholder="Como foi seu dia?"></textarea>
 
-      <button onclick="salvarEntrada()">Salvar</button>
-      <button onclick="editarEntrada()">Editar</button>
-      <button onclick="excluirEntrada()">Excluir</button>
+      <button onclick="salvarDiario()">Salvar</button>
+      <button onclick="excluirDiario()">Excluir</button>
 
+      <h2>Histórico de Diários</h2>
+      <div id="historico-diarios" class="historico-container"></div>
+      <button onclick="excluirTodosDiarios()" style="margin-top: 10px;">Excluir Todos</button>
     </div>
   </main>
-    <footer>
-        <p>&copy; Copyright 2025 Black Sheep</p>  
-    </footer>
+
+  <footer>
+    <p>&copy; Copyright 2025 Black Sheep</p>
+  </footer>
+
+  <script>
+    let diario = [];
+
+    function gerarId() {
+      return Date.now().toString();
+    }
+
+    function novoDiario() {
+      document.getElementById("titulo-diario").value = "";
+      document.getElementById("entry-date").value = "";
+      document.querySelector("textarea").value = "";
+    }
+
+    function salvarDiario() {
+      const titulo = document.getElementById("titulo-diario").value;
+      const data = document.getElementById("entry-date").value;
+      const pensamentos = document.querySelector("textarea").value;
+
+      if (!titulo || !data || !pensamentos) {
+        console.log("Preencha todos os campos.");
+        return;
+      }
+
+      const novaEntrada = {
+        id: gerarId(),
+        titulo,
+        data,
+        pensamentos
+      };
+
+      diario.push(novaEntrada);
+      console.log("Diário salvo com sucesso!");
+      novoDiario();
+      mostrarHistorico();
+    }
+
+    function editarDiario(id) {
+      const entrada = diario.find(e => e.id === id);
+      if (!entrada) return;
+
+      document.getElementById("titulo-diario").value = entrada.titulo;
+      document.getElementById("entry-date").value = entrada.data;
+      document.querySelector("textarea").value = entrada.pensamentos;
+
+      diario = diario.filter(e => e.id !== id);
+      mostrarHistorico();
+    }
+
+    function excluirDiario() {
+      const titulo = document.getElementById("titulo-diario").value;
+      const data = document.getElementById("entry-date").value;
+      const pensamentos = document.querySelector("textarea").value;
+
+      if (!titulo || !data || !pensamentos) {
+        console.log("Nenhuma entrada selecionada para excluir.");
+        return;
+      }
+
+      diario = diario.filter(e => !(e.titulo === titulo && e.data === data && e.pensamentos === pensamentos));
+      novoDiario();
+      mostrarHistorico();
+      console.log("Entrada excluída.");
+    }
+
+    function excluirTodosDiarios() {
+      const confirmar = confirm("Deseja excluir TODOS os diários?");
+      if (confirmar) {
+        diario = [];
+        mostrarHistorico();
+        console.log("Todos os diários foram apagados.");
+      }
+    }
+
+    function mostrarHistorico() {
+      const container = document.getElementById("historico-diarios");
+      if (!container) return;
+
+      if (diario.length === 0) {
+        container.innerHTML = "<p>Sem diários salvos.</p>";
+        return;
+      }
+
+      container.innerHTML = "";
+      diario.forEach((e) => {
+        const div = document.createElement("div");
+        div.className = "entrada-item";
+        div.innerHTML = `
+          <strong>${e.data}</strong> - ${e.titulo}
+          <button onclick="editarDiario('${e.id}')">Editar</button>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    window.onload = () => {
+      if (typeof diarioFake !== 'undefined') {
+        diario = [...diarioFake];
+      }
+      mostrarHistorico();
+    };
+  </script>
 </body>
 </html>
