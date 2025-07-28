@@ -1,8 +1,8 @@
 /* Estilo do cabeçalho */
-header{
-  background-color: #9cccd5; /* Muda a cor do fundo da header */
-  font-size: 250%; /* Muda o tamanho do texto da header */
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+header {
+  background-color: #9cccd5;
+  font-size: 250%;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,22 +19,22 @@ header{
   padding: 0;
 }
 
-nav{
+nav {
   width: 100%;
   display: flex;
   align-items: center;
-  gap: 30px; /* Ajusta o espaçamento horizontal entre as palavras*/
-  height: 100px; /* Ajusta o espaçamento vertical das palavras com o header*/
+  gap: 30px;
+  height: 100px;
   justify-content: right;
   background-color: #9cccd5;
   text-align: center;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.logo{
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
+.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 10px;
 }
 
@@ -51,12 +51,12 @@ a {
 
 a:hover {
   background-color: rgba(255, 255, 255, 0.723);
-  color: #3178c6; /* A cor do fundo da header, pra contrastar */
+  color: #3178c6;
   border-radius: 40px;
   box-shadow: 0 0 20px white;
 }
 
-html,body {
+html, body {
   height: 100%;
   margin: 0;
   display: flex;
@@ -66,10 +66,9 @@ html,body {
 main {
   height: 100vh;
   display: flex;
-  justify-content: center;  /* centraliza horizontalmente */
-  align-items: center;      /* centraliza verticalmente */
+  justify-content: center;
+  align-items: center;
   font-family: 'Georgia', serif;
-
   padding: 30px;
   border-radius: 16px;
   max-width: 800px;
@@ -130,68 +129,57 @@ button {
 
 /* Botão Salvar */
 button[type="submit"],
-button[onclick*="salvarEntrada"] {
+button[onclick*="salvarDiario"] {
   background-color: #79b8f9;
   color: rgb(255, 255, 255);
 }
 
 button[type="submit"]:hover,
-button[onclick*="salvarEntrada"]:hover {
+button[onclick*="salvarDiario"]:hover {
   background-color: #3178c6;
   transform: scale(1.03);
 }
 
-/* Botão Editar */
-button[onclick*="editarEntrada"] {
-  background-color: #ffd36f;
-  color: #4a3f1f;
-}
-
-button[onclick*="editarEntrada"]:hover {
-  background-color: #ffbb00;
-  transform: scale(1.03);
-}
-
 /* Botão Excluir */
-button[onclick*="excluirEntrada"] {
+button[onclick*="excluirDiario"] {
   background-color: #f77979;
   color: white;
 }
 
-button[onclick*="excluirEntrada"]:hover {
+button[onclick*="excluirDiario"]:hover {
   background-color: #d64545;
   transform: scale(1.03);
 }
 
 footer {
-    background-color: #9cccd5;
-    color: #3178c6;
-    text-align: center;
-    padding: 20px;
-    font-size: 0.9rem;
-    margin-top: auto;
+  background-color: #9cccd5;
+  color: #3178c6;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  margin-top: auto;
 }
 
-/* CSS para adaptar a telas pequenas:*/
+/* CSS para adaptar a telas pequenas: */
 @media (max-width: 768px) {
   header {
     flex-direction: column;
     align-items: flex-start;
     padding: 10px 15px;
-    font-size: 160%; /* Reduz o tamanho do texto */
+    font-size: 160%;
   }
-  
+
   .logo {
     display: flex;
-    justify-content: center;  /* Centraliza horizontalmente */
-    align-items: center;      /* Centraliza verticalmente (se necessário) */
+    justify-content: center;
+    align-items: center;
     width: 100%;
   }
-    
+
   .logo img {
     height: 80px;
   }
-  
+
   nav {
     width: 100%;
     justify-content: center;
@@ -200,7 +188,7 @@ footer {
     height: auto;
     padding: 10px 0;
   }
-  
+
   nav a {
     font-size: 90%;
     padding: 0.4rem 0.8rem;
@@ -215,23 +203,45 @@ input[type="date"] {
   margin-bottom: 1rem;
 } 
 
-h1{
+h1 {
   text-align: center;
   margin-top: 20px;
   color: #9cccd5;
   margin-bottom: 20px;
 }
 
-hr{
+hr {
   margin-top: 10px;
   margin-bottom: 20px;
-  border: 0; 
+  border: 0;
 }
 
-.sol{
+.sol {
   margin-top: 60px;
   display: flex;
-  justify-content: center;  /* Centraliza horizontalmente */
-  align-items: center;      /* Centraliza verticalmente (se necessário) */
+  justify-content: center;
+  align-items: center;
 }
 
+.historico-container {
+  margin-top: 20px;
+  padding: 10px;
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+.entrada-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px;
+  border-bottom: 1px solid #9cccd5;
+}
+
+.entrada-item button {
+  background-color: #a34caf;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
