@@ -1,31 +1,29 @@
-const form = document.querySelector("#form-login") as HTMLFormElement;
-const mensagem = document.querySelector("#mensagem") as HTMLDivElement;
+import { SupabaseService } from "../../service/SupabaseService";
+import { MensagemView } from "../components/MensagemView";
 
-form.addEventListener("submit", (e: Event) => {
+const form = document.querySelector("#form-login") as HTMLFormElement;
+const divMensagem = document.querySelector("#mensagem") as HTMLDivElement;
+
+const mensagem = new MensagemView(divMensagem);
+
+form.addEventListener("submit", async (e: Event) => {
   e.preventDefault();
 
   const email = (document.querySelector("#email") as HTMLInputElement).value.trim();
   const senha = (document.querySelector("#senha") as HTMLInputElement).value;
 
-  const dadosSalvos = localStorage.getItem("usuarioCadastrado");
-
-  if (!dadosSalvos) {
-    mostrarErro("Nenhum usuário cadastrado.");
+  if (!email || !senha) {
+    mensagem.mostrarErro("Preencha todos os campos.");
     return;
   }
 
-  const usuario = JSON.parse(dadosSalvos);
-
-  if (email === usuario.email && senha === usuario.senha) {
-    console.log("Login bem-sucedido!");
-    window.location.href = "/view/html/PaginaInicial.html"; 
-  } else {
-    mostrarErro("Email ou senha incorretos.");
+  try{
+    await SupabaseService.fazerLogin(email, senha);
+    console.log("Usuário logado com sucesso!");
+  } 
+  catch (err: any) {
+    mensagem.mostrarErro(err.message || 'Erro inesperado ao fazer login.');
+    console.log(err);
   }
-});
 
-function mostrarErro(msg: string): void {
-  mensagem.textContent = msg;
-  mensagem.style.display = "block";
-  mensagem.style.color = "red";
-}
+});

@@ -667,29 +667,28 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"39UA7":[function(require,module,exports,__globalThis) {
+var _supabaseService = require("../../service/SupabaseService");
+var _mensagemView = require("../components/MensagemView");
 const form = document.querySelector("#form-login");
-const mensagem = document.querySelector("#mensagem");
-form.addEventListener("submit", (e)=>{
+const divMensagem = document.querySelector("#mensagem");
+const mensagem = new (0, _mensagemView.MensagemView)(divMensagem);
+form.addEventListener("submit", async (e)=>{
     e.preventDefault();
     const email = document.querySelector("#email").value.trim();
     const senha = document.querySelector("#senha").value;
-    const dadosSalvos = localStorage.getItem("usuarioCadastrado");
-    if (!dadosSalvos) {
-        mostrarErro("Nenhum usu\xe1rio cadastrado.");
+    if (!email || !senha) {
+        mensagem.mostrarErro("Preencha todos os campos.");
         return;
     }
-    const usuario = JSON.parse(dadosSalvos);
-    if (email === usuario.email && senha === usuario.senha) {
-        console.log("Login bem-sucedido!");
-        window.location.href = "/view/html/PaginaInicial.html";
-    } else mostrarErro("Email ou senha incorretos.");
+    try {
+        await (0, _supabaseService.SupabaseService).fazerLogin(email, senha);
+        console.log("Usu\xe1rio logado com sucesso!");
+    } catch (err) {
+        mensagem.mostrarErro(err.message || 'Erro inesperado ao fazer login.');
+        console.log(err);
+    }
 });
-function mostrarErro(msg) {
-    mensagem.textContent = msg;
-    mensagem.style.display = "block";
-    mensagem.style.color = "red";
-}
 
-},{}]},["8wn98","39UA7"], "39UA7", "parcelRequiree55a", {})
+},{"../../service/SupabaseService":"gr4uh","../components/MensagemView":"hKnv0"}]},["8wn98","39UA7"], "39UA7", "parcelRequiree55a", {})
 
 //# sourceMappingURL=TelaDeEntrar.e9b91ed3.js.map
