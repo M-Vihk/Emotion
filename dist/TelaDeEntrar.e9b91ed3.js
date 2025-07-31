@@ -683,6 +683,7 @@ form.addEventListener("submit", async (e)=>{
     try {
         await (0, _supabaseService.SupabaseService).fazerLogin(email, senha);
         console.log("Usu\xe1rio logado com sucesso!");
+        window.location.href = "./PaginaInicial.html";
     } catch (err) {
         mensagem.mostrarErro(err.message || 'Erro inesperado ao fazer login.');
         console.log(err);

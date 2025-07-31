@@ -689,7 +689,8 @@ form.addEventListener("submit", async (e)=>{
         return;
     }
     try {
-        (0, _supabaseServiceJs.SupabaseService).salvarNoBanco(nome, email, senha, dataNasc, genero);
+        await (0, _supabaseServiceJs.SupabaseService).salvarNoBanco(nome, email, senha, dataNasc, genero);
+        window.location.href = "./PaginaInicial.html";
     } catch (error) {
         mensagem.mostrarErro(error.message || "Erro inesperado ao criar usu\xe1rio.");
     }

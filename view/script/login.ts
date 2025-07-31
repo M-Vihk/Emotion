@@ -20,6 +20,8 @@ form.addEventListener("submit", async (e: Event) => {
   try{
     await SupabaseService.fazerLogin(email, senha);
     console.log("Usuário logado com sucesso!");
+
+    window.location.href = "./PaginaInicial.html";
   } 
   catch (err: any) {
     mensagem.mostrarErro(err.message || 'Erro inesperado ao fazer login.');

@@ -26,7 +26,9 @@ form.addEventListener("submit", async (e: Event) => {
     return;
   }
   try {
-    SupabaseService.salvarNoBanco(nome,email,senha, dataNasc, genero);
+    await SupabaseService.salvarNoBanco(nome,email,senha, dataNasc, genero);
+    window.location.href = "./PaginaInicial.html";
+
   } catch (error: any) {
     mensagem.mostrarErro(error.message || 'Erro inesperado ao criar usuário.');
   }

@@ -705,6 +705,13 @@ class SupabaseService {
             throw new Error(err.message || 'Erro inesperado ao fazer login.');
         }
     }
+    static async obterUsuario() {
+        const { data: { user }, error: authError } = await (0, _supabaseClientJs.supabase).auth.getUser();
+        if (authError || !user) throw new Error("Usuario nao autenticado");
+        const { data: usuario, error } = await (0, _supabaseClientJs.supabase).from("usuarios").select("*").eq("id", user.id);
+        if (error || !usuario) throw new Error("Erro ao obter dados do usu\xe1rio");
+        return usuario;
+    }
 }
 
 },{"./supabaseClient.js":"kXu5L","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kXu5L":[function(require,module,exports,__globalThis) {
