@@ -14,7 +14,7 @@
     </div>
     <nav>
       <a href="PaginaInicial.html">Página Inicial</a>
-      <a href="">Estatísticas</a>
+      <a href="estatisticas.html">Estatísticas</a>
       <a href="DiarioDigital.html">Diário</a>
       <a href="TelaUsuario.html">Usuário</a>
     </nav>
@@ -134,7 +134,7 @@
         const div = document.createElement("div");
         div.className = "entrada-item";
         div.innerHTML = `
-          <strong>${e.data}</strong> - ${e.titulo}
+          <strong>${e.titulo}</strong> - ${e.data}
           <button onclick="editarDiario('${e.id}')">Editar</button>
         `;
         container.appendChild(div);
