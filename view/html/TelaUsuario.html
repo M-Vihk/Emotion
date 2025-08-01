@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil do Usuário</title>
     <link rel="stylesheet" href="../css/TelaUsuario.css">
     <link rel="website icon" type="png" href="../img/SolIcone.png">
+    <script type="module" src="../Tela Usuario/fakeBD.ts"></script>
 </head>
 <body>
     <header>
@@ -20,46 +21,45 @@
         </nav>
       </header>
 <main>
-    <main class="container">
-    <aside>
-      <img src="/view/img/FundoPaginaInicial.png" alt="Foto de perfil de Lívia Martins" class="perfil-img" />
-      <h2>Perfil</h2>
-      <p>Desenvolvedora Front-End e Designer UX</p>
-    </aside>
+   <main class="container">
+  <aside>
+    <img src="/view/img/FundoPaginaInicial.png" alt="Foto de perfil de Vitória" class="perfil-img" />
+    <button class="btn-alterar-foto">Alterar Foto</button>
+    <h2>Perfil</h2>
+    <button class="btn-sair" onclick="window.location.href='login.html'">Sair da Conta</button>
+  </aside>
 
+  <section class="conteudo">
+    <form>
+      <fieldset>
+        <legend>Dados Pessoais</legend>
+        <label>Nome Completo
+          <input type="text" value="Vitória" />
+        </label>
+        <label>E-mail
+          <input type="email" value="vitoria@email.com" />
+        </label>
 
-    <section class="contudo">
-      <form>
-        <fieldset>
-          <legend>Dados Pessoais</legend>
-          <label>Nome Completo
-            <input type="text" value="Vitória" />
-          </label>
-          <label>E-mail
-            <input type="email" value="vitoria@email.com" />
-          </label>
+        <label>Data de Nascimento
+          <input type="date" value="1995-08-12" />
+        </label>
+        <label>Sexo
+          <select>
+            <option>Feminino</option>
+            <option>Masculino</option>
+            <option>Outro</option>
+          </select>
+        </label>
+        <label>Biografia
+          <textarea rows="4">Desenvolvedora Front-End com ênfase em acessibilidade e usabilidade. Apaixonada por design centrado no usuário e interfaces responsivas. 5 anos de experiência em tecnologia.</textarea>
+        </label>
+      </fieldset>
 
-          <label>Data de Nascimento
-            <input type="date" value="1995-08-12" />
-          </label>
-          <label>Sexo
-            <select>
-              <option>Feminino</option>
-              <option>Masculino</option>
-              <option>Outro</option>
-            </select>
-          </label>
-          <label>Biografia
-            <textarea rows="4">
-Desenvolvedora Front-End com ênfase em acessibilidade e usabilidade. Apaixonada por design centrado no usuário e interfaces responsivas. 5 anos de experiência em tecnologia.
-            </textarea>
-          </label>
-        </fieldset>
+      <button type="submit">Salvar</button>
+    </form>
+  </section>
+</main>
 
-        <button etype="submit">Salvar</button>
-      </form>
-    </section>
-  </main>
     <footer>
         <p>&copy; Copyright 2025 Black Sheep</p>  
     </footer>     
