@@ -1,17 +1,17 @@
 /* Estilo do cabeçalho */
-header{
-  background-color: #9cccd5; /* Muda a cor do fundo da header */
-  font-size: 200%; /* Muda o tamanho do texto da header */
-  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+header {
+  background-color: #9cccd5;
+  font-size: 250%;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 30px;
-  border-bottom: 1px solid #ccc; 
+  border-bottom: 1px solid #ccc;
 }
 
 .logo img {
-  height: 100px;
+  height: 120px;
 }
 
 * {
@@ -79,9 +79,9 @@ main {
 
 /* Estilo do diário */
 .diario {
-  background: linear-gradient(to right, #fffaf0 50%, #fffaf0 50%);
+  background: linear-gradient(to right, #e6ccf7 50%, #e1c4fc 50%);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  border: 1px solid #ccc;
+  border: 1px solid #b488e6;
   width: 80%;
   max-width: 800px;
   height: 90vh;
@@ -91,63 +91,64 @@ main {
   border-radius: 12px;
   position: relative;
   border-right: 70px;
+  
 }
 
 .diario textarea {
   flex-grow: 1;
+  min-height: 100px;
   border: none;
   resize: none;
   padding: 1rem;
   line-height: 1.8;
   font-size: 1.1rem;
-  background: repeating-linear-gradient(
-    #fffaf0,
-    #fffaf0 28px,
-    #e8dccc 29px,
-    #fffaf0 30px
-  );
-  color: #383838;
+  background-color: #f2eaf8;
+  color: #3b3b3b;
   font-family: 'Georgia', serif;
-  border-left: 2px solid #c49e84;
-  border-right: 2px solid #c49e84;
+  border-left: 2px solid #b488e6;
+  border-right: 2px solid #b488e6;
   outline: none;
   border-radius: 6px;
-  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.041);
 }
 
 /* Botões */
 button {
-  padding: 9px 5px;
-  margin: 4px;
-  font-size: 1rem;
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 1.1rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 30px;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 200px;
+  height: 50px;
+  align-self: center;
+  text-align: center;
 }
 
 /* Botão Salvar */
 button[type="submit"],
 button[onclick*="salvarDiario"] {
   background-color: #79b8f9;
-  color: rgb(255, 255, 255);
+  color:#4a4a4a;
 }
 
 button[type="submit"]:hover,
 button[onclick*="salvarDiario"]:hover {
-  background-color: #3178c6;
+  background-color: #7ab4d9;
   transform: scale(1.03);
 }
 
 /* Botão Excluir */
 button[onclick*="excluirDiario"] {
-  background-color: #f77979;
+  background-color: #b488e6;
   color: white;
 }
 
 button[onclick*="excluirDiario"]:hover {
-  background-color: #d64545;
+  background-color: #884cc9;
   transform: scale(1.03);
 }
 
@@ -195,19 +196,10 @@ footer {
   }
 }
 
-input[type="date"] {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  margin-bottom: 1rem;
-} 
-
-h1 {
-  text-align: center;
-  margin-top: 20px;
-  color: #9cccd5;
-  margin-bottom: 20px;
+input, textarea, button, h1, h2, h3, p, label {
+  font-size: 1rem;
+  font-family: 'Georgia', serif;
+  padding: 10px;
 }
 
 hr {
@@ -234,7 +226,7 @@ hr {
   display: flex;
   justify-content: space-between;
   padding: 6px;
-  border-bottom: 1px solid #9cccd5;
+  border-bottom: 1px solid #93c3cc;
 }
 
 .entrada-item button {
@@ -242,6 +234,7 @@ hr {
   color: white;
   border: none;
   padding: 4px 8px;
-  border-radius: 5px;
+  border-radius: 50px;
   cursor: pointer;
 }
+
