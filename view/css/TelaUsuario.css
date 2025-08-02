@@ -16,37 +16,41 @@ body, html {
 }
 
 /* HEADER */
-header {
-  background-color: #91def2;
-  font-size: 250%;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+header{
+  background-color: #9cccd5; /* Muda a cor do fundo da header */
+  font-size: 200%; /* Muda o tamanho do texto da header */
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 30px;
-  border-bottom: 2px solid #ccc;
-}
-
-.logo {
-  height: 120px;
+  border-bottom: 1px solid #ccc; 
 }
 
 .logo img {
-  height: 80px;
-  margin-right: 10px;
+  height: 100px;
 }
 
-/* NAV */
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: right;
-  gap: 30px;
-  background-color: transparent;
-  height: 100px;
+*{
+  margin: 0;
+  padding: 0;
+}
+
+nav{
   width: 100%;
+  display: flex;
+  align-items:center;
+  gap: 30px; /* Ajusta o espaçamento horizontal entre as palavras*/
+  height: 100px; /* Ajusta o espaçamento vertical das palavras com o header*/
+  justify-content:right;
+  background-color: #9cccd5;
   text-align: center;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.logo{
+  display: flex; 
+  justify-content: space-between; align-items: center; 
+  padding: 10px;
 }
 
 nav a {
@@ -92,8 +96,6 @@ aside {
 .perfil-img {
   width: 150px;
   height: 150px;
-  border-radius: 50%;
-  border: 2px solid #86b4ff;
   object-fit: cover;
   margin-bottom: 1rem;
 }

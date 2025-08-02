@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,10 +21,11 @@
   </header>
 
   <main>
-    <h1>Diário Virtual</h1>
+    
     <div class="novo-diario-container"></div>
-
+    
     <div class="diario" id="diario-container">
+      <h1>Diário Virtual</h1>
       <input type="text" id="titulo-diario" placeholder="Título do Diário" 
       style="font-size: 1.2rem; padding: 10px; margin-bottom: 10px; border-radius: 8px; border: 1px solid #ccc; width: 100%;">
 
@@ -120,6 +121,11 @@
       }
     }
 
+    function formatarData(dataString) {
+  const data = new Date(dataString);
+  return data.toLocaleDateString('pt-BR');
+}
+
     function mostrarHistorico() {
       const container = document.getElementById("historico-diarios");
       if (!container) return;
@@ -134,7 +140,7 @@
         const div = document.createElement("div");
         div.className = "entrada-item";
         div.innerHTML = `
-          <strong>${e.titulo}</strong> - ${e.data}
+          <strong>${e.titulo}</strong> - ${formatarData(e.data)}
           <button onclick="editarDiario('${e.id}')">Editar</button>
         `;
         container.appendChild(div);
