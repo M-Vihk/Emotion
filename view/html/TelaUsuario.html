@@ -23,7 +23,7 @@
 <main>
    <main class="container">
   <aside>
-    <img src="/view/img/user.png" alt="Foto de perfil de Vitória" class="perfil-img" />
+    <img src="../img/user.png" alt="Foto de perfil de Vitória" class="perfil-img" />
     <button class="btn-alterar-foto">Alterar Foto</button>
     <h2>Perfil</h2>
     <button class="btn-sair" onclick="window.location.href='login.html'">Sair da Conta</button>
@@ -34,8 +34,12 @@
       <fieldset>
         <legend>Dados Pessoais</legend>
         <label>Nome Completo
-          <input type="text" value="Vitória" />
+          <div style="display: flex; gap: 10px; align-items: center;">
+            <input type="text" id="nomeCompleto" value="Vitória" disabled />
+            <button type="button" class="btn-alterar-nome" onclick="habilitarEdicaoNome()">Alterar Nome</button>
+          </div>
         </label>
+
         <label>E-mail
           <input type="email" value="vitoria@email.com" />
         </label>
@@ -50,9 +54,6 @@
             <option>Outro</option>
           </select>
         </label>
-        <label>Biografia
-          <textarea rows="4">Desenvolvedora Front-End com ênfase em acessibilidade e usabilidade. Apaixonada por design centrado no usuário e interfaces responsivas. 5 anos de experiência em tecnologia.</textarea>
-        </label>
       </fieldset>
 
       <button type="submit">Salvar</button>
@@ -60,8 +61,9 @@
   </section>
 </main>
 
-    <footer>
-        <p>&copy; Copyright 2025 Black Sheep</p>  
-    </footer>     
+  <footer>
+    <p>&copy; Copyright 2025 Black Sheep</p>  
+  </footer>
+ 
 </body>
 </html>
