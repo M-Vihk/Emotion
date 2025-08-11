@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -21,7 +22,6 @@
   </header>
 
   <main>
-    
     <div class="novo-diario-container"></div>
     
     <div class="diario" id="diario-container">
@@ -80,6 +80,7 @@
 
       diario.push(novaEntrada);
       console.log("Diário salvo com sucesso!");
+      console.table(diario); // 📌 Exibe todos os diários no console
       novoDiario();
       mostrarHistorico();
     }
@@ -110,6 +111,7 @@
       novoDiario();
       mostrarHistorico();
       console.log("Entrada excluída.");
+      console.table(diario); // 📌 Exibe lista após exclusão
     }
 
     function excluirTodosDiarios() {
@@ -118,13 +120,14 @@
         diario = [];
         mostrarHistorico();
         console.log("Todos os diários foram apagados.");
+        console.table(diario);
       }
     }
 
     function formatarData(dataString) {
-  const data = new Date(dataString);
-  return data.toLocaleDateString('pt-BR');
-}
+      const data = new Date(dataString);
+      return data.toLocaleDateString('pt-BR');
+    }
 
     function mostrarHistorico() {
       const container = document.getElementById("historico-diarios");
@@ -132,6 +135,7 @@
 
       if (diario.length === 0) {
         container.innerHTML = "<p>Sem diários salvos.</p>";
+        console.log("Nenhum diário salvo.");
         return;
       }
 
@@ -145,6 +149,8 @@
         `;
         container.appendChild(div);
       });
+
+      console.table(diario); // 📌 Mostra sempre que o histórico for atualizado
     }
 
     window.onload = () => {
@@ -154,5 +160,6 @@
       mostrarHistorico();
     };
   </script>
+
 </body>
 </html>

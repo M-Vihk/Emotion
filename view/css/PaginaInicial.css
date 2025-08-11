@@ -7,102 +7,77 @@ header{
     align-items: center;
     padding: 10px 30px;
     border-bottom: 1px solid #ccc; 
-}
-
-.logo img {
+  }
+  
+  .logo img {
     height: 100px;
   }
-
- *{
-    margin: 0;
-    padding: 0;
- }
-
- nav{
-    width: 100%;
-    display: flex;
-    align-items:center;
-    gap: 30px; /* Ajusta o espaçamento horizontal entre as palavras*/
-    height: 100px; /* Ajusta o espaçamento vertical das palavras com o header*/
-    justify-content:right;
-    background-color: #9cccd5;
-    text-align: center;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
- .logo{
-    display: flex; 
-    justify-content: space-between; align-items: center; 
-    padding: 10px;
- }
-
- a {
-    text-decoration: none;
-    position: relative;
-    cursor: pointer;
-    color: #3178c6;
-    font-size: 100%;
-    padding: 0.5rem 1rem;
-    transition: all 0.3s ease;
-    z-index: 2;
-}
-
-a:hover {
-    background-color: rgba(255, 255, 255, 0.723);
-    color: #3178c6; /* A cor do fundo da header, pra contrastar */
-    border-radius: 40px;
-    box-shadow: 0 0 20px white;
-}
-html,body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
+  
+   *{
+      margin: 0;
+      padding: 0;
+   }
+  
+   .logo{
+      display: flex; 
+      justify-content: space-between; align-items: center; 
+      padding: 10px;
+   }
+  
+   a {
+      text-decoration: none;
+      position: relative;
+      cursor: pointer;
+      color: #3178c6;
+      font-size: 100%;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease;
+      z-index: 2;
   }
-  main {
-    flex: 1;
+  
+  a:hover {
+      background-color: rgba(255, 255, 255, 0.723);
+      color: #3178c6; /* A cor do fundo da header, pra contrastar */
+      border-radius: 40px;
+      box-shadow: 0 0 20px white;
   }
-
-footer {
-    background-color: #9cccd5;
-    color: #3178c6;
-    text-align: center;
-    padding: 20px;
-    font-size: 0.9rem;
-    margin-top: auto;
-}
-
-/* CSS para adaptar a telas pequenas:*/
-@media (max-width: 768px) {
-    header {
+  html,body {
+      height: 100%;
+      margin: 0;
+      display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      padding: 10px 15px;
-      font-size: 160%; /* Reduz o tamanho do texto */
+    }
+    main {
+      flex: 1;
     }
   
-    .logo {
-        display: flex;
-        justify-content: center;  /* Centraliza horizontalmente */
-        align-items: center;      /* Centraliza verticalmente (se necessário) */
-        width: 100%;
-      }
-    
-      .logo img {
-        height: 80px;
-      }
+  footer {
+      background-color: #9cccd5;
+      color: #3178c6;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      margin-top: auto;
+  }
   
-    nav {
+  /* CSS para adaptar a telas pequenas:*/
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;
+    font-size: 160%; /* Reduz o tamanho do texto */
+  }
+
+  .logo {
+      display: flex;
+      justify-content: center;  /* Centraliza horizontalmente */
+      align-items: center;      /* Centraliza verticalmente (se necessário) */
       width: 100%;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      height: auto;
-      padding: 10px 0;
     }
   
-    nav a {
-      font-size: 90%;
-      padding: 0.4rem 0.8rem;
+    .logo img {
+      height: 80px;
     }
   }
  
@@ -110,72 +85,89 @@ footer {
 
 /*Parte do main: */
 
-h1{
-    text-align: center;
-    margin-top: 20px;
-    color: #9cccd5;
-}
-
-hr{
-    margin-top: 10px;
-}
-
-.sol{
-    margin-top: 60px;
+  nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    height: auto;
+    padding: 10px 0;
+    align-items: center;
     display: flex;
-    justify-content: center;  /* Centraliza horizontalmente */
-    align-items: center;      /* Centraliza verticalmente (se necessário) */
-}
-
-.frase{
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;  /* Centraliza horizontalmente */
-    align-items: center;      /* Centraliza verticalmente (se necessário) */
-}
-
-h2{
-    text-align: center;
-    color: #9cccd5;
-}
-
-.botao-cadastrar:hover, .botao-entrar:hover  {
-    background-color: #ffdd78;
   }
 
-  .botoes {
-    display: flex;
-    flex-direction: column; 
-    align-items: center;     /* centraliza na horizontal */
-    gap: 8px;               /* espaço entre os botões */
-    margin-top: 30px;
-}
-
-.botao-cadastrar {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background-color: #79b8f9; 
-    color: #ffeefe;
-    padding: 10px 15px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
-    width: 300px;
-    height: 50px;
-    font-size: 50px;
+  nav a {
+    font-size: 90%;
+    padding: 0.4rem 0.8rem;
   }
-
-  .botao-entrar {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background-color: #e2ccff; 
+}
+   
+  /*Parte do main: */
+  
+  h1, h2{
+      text-align: center;
+      margin-top: 20px;
+      color: #2f5f98;
+      font-size: 50px;
+  }
+  
+  .botao-cadastrar:hover, .botao-entrar:hover  {
+      background-color: #ffdd78;
+    }
+  
+    .botoes {
+      display: flex;
+      flex-direction: column; 
+      align-items: center;     /* centraliza na horizontal */
+      gap: 8px;               /* espaço entre os botões */
+      margin-top: 30px;
+  }
+  
+    .botao-entrar {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: #2d8bba; 
+      color: #ffdd78;
+      padding: 10px 15px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+      transition: background-color 0.3s ease;
+      margin-top: 5px ;
+      margin-bottom: 50px;
+      width: 250px;
+      height: 40px;
+      font-size: 25px;
+    }
+  
+    .container {
+      width: 400px;
+      margin: 50px auto;
+      background-color: #ffeefe;
+      padding: 30px;
+      border-radius: 20px;
+      color: #2f5f98;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .container input[type="email"], .container input[type="password"], .container input[type="text"], .container input[type="date"], .container select{
+    width: 90%;
+    padding: 12px 20px;
+    margin-top: 10px;
+    margin-bottom: 1px;
+    border: none;
+    border-radius: 20px;
+    font-size: 30px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+    outline: none;
+    background-color: #e2ccff;
     color: #3178c6;
     padding: 10px 15px;
     border-radius: 30px;

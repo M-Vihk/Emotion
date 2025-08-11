@@ -201,10 +201,22 @@ button[type="submit"]:hover {
   transition: all 0.3s ease;
 }
 
-.btn-alterar-foto:hover {
+.btn-alterar-nome {
+  background-color: #ffffff;
+  color: #2f5f98;
+  border: 2px solid #2f5f98;
+  border-radius: 20px;
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-alterar-nome:hover {
   background-color: #2f5f98;
   color: white;
 }
+
 
 .btn-sair {
   margin-top: 1.5rem;
