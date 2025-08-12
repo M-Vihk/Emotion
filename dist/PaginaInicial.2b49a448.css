@@ -18,22 +18,10 @@ header {
   padding: 0;
 }
 
-nav {
-  text-align: center;
-  background-color: #9cccd5;
-  justify-content: right;
-  align-items: center;
-  gap: 30px;
-  width: 100%;
-  height: 100px;
-  font-family: Franklin Gothic Medium, Arial Narrow, Arial, sans-serif;
-  display: flex;
-}
-
 .logo {
-  padding: 10px:;
   justify-content: space-between;
   align-items: center;
+  padding: 10px;
   display: flex;
 }
 
@@ -93,49 +81,29 @@ footer {
   .logo img {
     height: 80px;
   }
-
-  nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    height: auto;
-    padding: 10px 0;
-  }
-
-  nav a {
-    padding: .4rem .8rem;
-    font-size: 90%;
-  }
 }
 
-h1 {
+nav {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: auto;
+  padding: 10px 0;
+  display: flex;
+}
+
+nav a {
+  padding: .4rem .8rem;
+  font-size: 90%;
+}
+
+h1, h2 {
   text-align: center;
-  color: #9cccd5;
+  color: #2f5f98;
   margin-top: 20px;
-}
-
-hr {
-  margin-top: 10px;
-}
-
-.sol {
-  justify-content: center;
-  align-items: center;
-  margin-top: 60px;
-  display: flex;
-}
-
-.frase {
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-  display: flex;
-}
-
-h2 {
-  text-align: center;
-  color: #9cccd5;
+  font-size: 50px;
 }
 
 .botao-cadastrar:hover, .botao-entrar:hover {
@@ -150,32 +118,45 @@ h2 {
   display: flex;
 }
 
-.botao-cadastrar {
-  color: #ffeefe;
-  background-color: #79b8f9;
+.botao-entrar {
+  color: #ffdd78;
+  background-color: #2d8bba;
   border-radius: 30px;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  width: 300px;
-  height: 50px;
-  margin-top: 20px;
+  width: 250px;
+  height: 40px;
+  margin-top: 5px;
+  margin-bottom: 50px;
   padding: 10px 15px;
   font-family: Arial, sans-serif;
-  font-size: 50px;
+  font-size: 25px;
   font-weight: bold;
   text-decoration: none;
   transition: background-color .3s;
   display: inline-flex;
 }
 
-.botao-entrar {
+.container {
+  color: #2f5f98;
+  background-color: #ffeefe;
+  border-radius: 20px;
+  flex-direction: column;
+  gap: 15px;
+  width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  display: flex;
+  box-shadow: 0 0 10px #0003;
+}
+
+.container input[type="email"], .container input[type="password"], .container input[type="text"], .container input[type="date"], .container select {
   color: #3178c6;
   background-color: #e2ccff;
+  border: none;
   border-radius: 30px;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
+  outline: none;
   width: 300px;
   height: 50px;
   margin-top: 10px;
@@ -186,6 +167,6 @@ h2 {
   font-weight: bold;
   text-decoration: none;
   transition: background-color .3s;
-  display: inline-flex;
+  box-shadow: 0 0 5px #0003;
 }
 /*# sourceMappingURL=PaginaInicial.2b49a448.css.map */

@@ -160,7 +160,7 @@
       });
     }
   }
-})({"ip4RB":[function(require,module,exports,__globalThis) {
+})({"jkNG1":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -168,7 +168,7 @@ var HMR_SERVER_PORT = 1234;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "439701173a9199ea";
 var HMR_USE_SSE = false;
-module.bundle.HMR_BUNDLE_ID = "8e6d9252bc242248";
+module.bundle.HMR_BUNDLE_ID = "4b5ac01a2d2f59e1";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_SERVER_PORT, HMR_ENV_HASH, HMR_SECURE, HMR_USE_SSE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -666,12 +666,75 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     }
 }
 
-},{}],"kXu5L":[function(require,module,exports,__globalThis) {
+},{}],"gr4uh":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "SupabaseService", ()=>SupabaseService);
+var _supabaseClientJs = require("./supabaseClient.js");
+class SupabaseService {
+    static async salvarNoBanco(nome, email, senha, dataNasc, genero) {
+        try {
+            const { data, error } = await (0, _supabaseClientJs.supabase).auth.signUp({
+                email: email,
+                password: senha
+            });
+            if (error) throw new Error("Erro ao cadastrar usu\xe1rio: " + error.message);
+            const { error: insertError } = await (0, _supabaseClientJs.supabase).from("usuarios").insert([
+                {
+                    id: data.user?.id,
+                    nome: nome,
+                    nascimento: dataNasc,
+                    genero: genero
+                }
+            ]);
+            if (insertError) throw new Error("Erro ao salvar dados extra do usuario: " + insertError.message);
+            console.log("Usu\xe1rio cadastrado com sucesso!", data.user);
+        } catch (error) {
+            throw new Error(error.message || "Erro inesperado ao criar usu\xe1rio.");
+        }
+    }
+    static async fazerLogin(email, senha) {
+        try {
+            const { data, error } = await (0, _supabaseClientJs.supabase).auth.signInWithPassword({
+                email: email,
+                password: senha
+            });
+            if (error) throw new Error("Email ou senha inv\xe1lidos.");
+            return data.user;
+        } catch (err) {
+            throw new Error(err.message || 'Erro inesperado ao fazer login.');
+        }
+    }
+    static async salvarEmocoes(alegria, tristeza, ansiedade, raiva, medo) {
+        try {
+            const { data: { user }, error: userError } = await (0, _supabaseClientJs.supabase).auth.getUser();
+            if (userError || !user) throw new Error("Usu\xe1rio n\xe3o autenticado.");
+            // Insere na tabela de emoções
+            const { error } = await (0, _supabaseClientJs.supabase).from("emocoes").insert([
+                {
+                    id_usuario: user.id,
+                    alegria: alegria,
+                    tristeza: tristeza,
+                    ansiedade: ansiedade,
+                    raiva: raiva,
+                    medo: medo,
+                    data_registro: new Date().toISOString().split("T")[0] // formato YYYY-MM-DD
+                }
+            ]);
+            console.log(user.id);
+            if (error) throw new Error("Erro ao salvar notas emocionais: " + error.message);
+            console.log("Notas emocionais salvas com sucesso!");
+        } catch (err) {
+            throw new Error(err.message || "Erro inesperado ao salvar notas emocionais.");
+        }
+    }
+}
+
+},{"./supabaseClient.js":"3Wffu","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"3Wffu":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "supabase", ()=>supabase);
 var _supabaseJs = require("@supabase/supabase-js");
-// Substitua pelas suas chaves reais
 const SUPABASE_URL = "https://ebwfctksgihlcqtzzfff.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVid2ZjdGtzZ2lobGNxdHp6ZmZmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTM3MjAxODAsImV4cCI6MjA2OTI5NjE4MH0.ISCdf0P3ysLHo4svC8VCN71Ct3p2EH_KpbP9PkPmp1A";
 const supabase = (0, _supabaseJs.createClient)(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -10627,6 +10690,26 @@ var _goTrueClientDefault = parcelHelpers.interopDefault(_goTrueClient);
 const AuthClient = (0, _goTrueClientDefault.default);
 exports.default = AuthClient;
 
-},{"./GoTrueClient":"gnygt","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["ip4RB"], null, "parcelRequiree55a", {})
+},{"./GoTrueClient":"gnygt","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"hKnv0":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MensagemView", ()=>MensagemView);
+class MensagemView {
+    constructor(elemento){
+        this.elemento = elemento;
+    }
+    mostrarErro(msg) {
+        this.elemento.textContent = msg;
+        this.elemento.style.display = "block";
+        this.elemento.style.color = "red";
+    }
+    mostrarSucesso(msg) {
+        this.elemento.textContent = msg;
+        this.elemento.style.display = "block";
+        this.elemento.style.color = "green";
+    }
+}
 
-//# sourceMappingURL=TelaDeCadastro.bc242248.js.map
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["jkNG1"], null, "parcelRequiree55a", {})
+
+//# sourceMappingURL=TelaDeCadastro.2d2f59e1.js.map

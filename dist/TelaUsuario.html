@@ -18,48 +18,50 @@
         </nav>
       </header>
 <main>
-    <main class="container">
-    <aside>
-      <img src="/FundoPaginaInicial.45fee1c0.png" alt="Foto de perfil de Lívia Martins" class="perfil-img">
-      <h2>Perfil</h2>
-      <p>Desenvolvedora Front-End e Designer UX</p>
-    </aside>
+   <main class="container">
+  <aside>
+    <img src="/user.839e53e6.png" alt="Foto de perfil de Vitória" class="perfil-img">
+    <button class="btn-alterar-foto">Alterar Foto</button>
+    <h2>Perfil</h2>
+    <button class="btn-sair" onclick="window.location.href='login.html'">Sair da Conta</button>
+  </aside>
 
+  <section class="conteudo">
+    <form>
+      <fieldset>
+        <legend>Dados Pessoais</legend>
+        <label>Nome Completo
+          <div style="align-items: center; gap: 10px; display: flex">
+            <input type="text" id="nomeCompleto" value="Vitória" disabled="">
+            <button type="button" class="btn-alterar-nome" onclick="habilitarEdicaoNome()">Alterar Nome</button>
+          </div>
+        </label>
 
-    <section class="contudo">
-      <form>
-        <fieldset>
-          <legend>Dados Pessoais</legend>
-          <label>Nome Completo
-            <input type="text" value="Vitória">
-          </label>
-          <label>E-mail
-            <input type="email" value="vitoria@email.com">
-          </label>
+        <label>E-mail
+          <input type="email" value="vitoria@email.com">
+        </label>
 
-          <label>Data de Nascimento
-            <input type="date" value="1995-08-12">
-          </label>
-          <label>Sexo
-            <select>
-              <option>Feminino</option>
-              <option>Masculino</option>
-              <option>Outro</option>
-            </select>
-          </label>
-          <label>Biografia
-            <textarea rows="4">Desenvolvedora Front-End com ênfase em acessibilidade e usabilidade. Apaixonada por design centrado no usuário e interfaces responsivas. 5 anos de experiência em tecnologia.
-            </textarea>
-          </label>
-        </fieldset>
+        <label>Data de Nascimento
+          <input type="date" value="1995-08-12">
+        </label>
+        <label>Sexo
+          <select>
+            <option>Feminino</option>
+            <option>Masculino</option>
+            <option>Outro</option>
+          </select>
+        </label>
+      </fieldset>
 
-        <button etype="submit">Salvar</button>
-      </form>
-    </section>
-  </main>
-    <footer>
-        <p>© Copyright 2025 Black Sheep</p>  
-    </footer>     
+      <button type="submit">Salvar</button>
+    </form>
+  </section>
+</main>
+
+  <footer>
+    <p>© Copyright 2025 Black Sheep</p>  
+  </footer>
+ 
 
 
 </main><script src="/TelaUsuario.478137ce.js"></script></body></html>

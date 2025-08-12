@@ -160,7 +160,7 @@
       });
     }
   }
-})({"gGz3i":[function(require,module,exports,__globalThis) {
+})({"1tkDj":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -703,6 +703,29 @@ class SupabaseService {
             return data.user;
         } catch (err) {
             throw new Error(err.message || 'Erro inesperado ao fazer login.');
+        }
+    }
+    static async salvarEmocoes(alegria, tristeza, ansiedade, raiva, medo) {
+        try {
+            const { data: { user }, error: userError } = await (0, _supabaseClientJs.supabase).auth.getUser();
+            if (userError || !user) throw new Error("Usu\xe1rio n\xe3o autenticado.");
+            // Insere na tabela de emoções
+            const { error } = await (0, _supabaseClientJs.supabase).from("emocoes").insert([
+                {
+                    id_usuario: user.id,
+                    alegria: alegria,
+                    tristeza: tristeza,
+                    ansiedade: ansiedade,
+                    raiva: raiva,
+                    medo: medo,
+                    data_registro: new Date().toISOString().split("T")[0] // formato YYYY-MM-DD
+                }
+            ]);
+            console.log(user.id);
+            if (error) throw new Error("Erro ao salvar notas emocionais: " + error.message);
+            console.log("Notas emocionais salvas com sucesso!");
+        } catch (err) {
+            throw new Error(err.message || "Erro inesperado ao salvar notas emocionais.");
         }
     }
 }
@@ -10687,6 +10710,6 @@ class MensagemView {
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["gGz3i"], null, "parcelRequiree55a", {})
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["1tkDj"], null, "parcelRequiree55a", {})
 
 //# sourceMappingURL=TelaDeCadastro.78088303.js.map

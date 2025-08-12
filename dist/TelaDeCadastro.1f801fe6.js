@@ -160,7 +160,7 @@
       });
     }
   }
-})({"f0oWn":[function(require,module,exports,__globalThis) {
+})({"6MBO8":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -667,11 +667,11 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"36Fp4":[function(require,module,exports,__globalThis) {
-var _supabaseServiceJs = require("../../service/SupabaseService.js");
-var _mensagemViewJs = require("../components/MensagemView.js");
+var _supabaseService = require("../../service/SupabaseService");
+var _mensagemView = require("../components/MensagemView");
 const form = document.querySelector("#form-login");
 const divMensagem = document.querySelector("#mensagem");
-const mensagem = new (0, _mensagemViewJs.MensagemView)(divMensagem);
+const mensagem = new (0, _mensagemView.MensagemView)(divMensagem);
 form.addEventListener("submit", async (e)=>{
     e.preventDefault();
     const nome = document.querySelector("#nome").value.trim();
@@ -689,13 +689,13 @@ form.addEventListener("submit", async (e)=>{
         return;
     }
     try {
-        await (0, _supabaseServiceJs.SupabaseService).salvarNoBanco(nome, email, senha, dataNasc, genero);
+        await (0, _supabaseService.SupabaseService).salvarNoBanco(nome, email, senha, dataNasc, genero);
         window.location.href = "./PaginaInicial.html";
     } catch (error) {
         mensagem.mostrarErro(error.message || "Erro inesperado ao criar usu\xe1rio.");
     }
 });
 
-},{"../../service/SupabaseService.js":"gr4uh","../components/MensagemView.js":"hKnv0"}]},["f0oWn","36Fp4"], "36Fp4", "parcelRequiree55a", {})
+},{"../../service/SupabaseService":"gr4uh","../components/MensagemView":"hKnv0"}]},["6MBO8","36Fp4"], "36Fp4", "parcelRequiree55a", {})
 
 //# sourceMappingURL=TelaDeCadastro.1f801fe6.js.map

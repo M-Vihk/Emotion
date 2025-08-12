@@ -48,10 +48,50 @@ export class SupabaseService {
       if (error) {
         throw new Error("Email ou senha inválidos.");
       }
-      
+
       return data.user;
     } catch (err: any) {
       throw new Error(err.message || 'Erro inesperado ao fazer login.');
     }
   }
+
+
+  static async salvarEmocoes(
+    alegria: number,
+    tristeza: number,
+    ansiedade: number,
+    raiva: number,
+    medo: number
+  ): Promise<void> {
+    try {
+      const { data: { user }, error: userError } = await supabase.auth.getUser();
+
+      if (userError || !user) {
+        throw new Error("Usuário não autenticado.");
+      }
+
+      // Insere na tabela de emoções
+      const { error } = await supabase.from("emocoes").insert([
+        {
+          id_usuario: user.id,
+          alegria: alegria,
+          tristeza: tristeza,
+          ansiedade: ansiedade,
+          raiva: raiva,
+          medo: medo,
+          data_registro: new Date().toISOString().split("T")[0] // formato YYYY-MM-DD
+        }
+      ]);
+      console.log( user.id);
+
+      if (error) {
+        throw new Error("Erro ao salvar notas emocionais: " + error.message);
+      }
+
+      console.log("Notas emocionais salvas com sucesso!");
+    } catch (err: any) {
+      throw new Error(err.message || "Erro inesperado ao salvar notas emocionais.");
+    }
+  }
+
 }
