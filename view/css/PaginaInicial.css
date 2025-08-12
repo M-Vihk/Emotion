@@ -16,6 +16,7 @@ header{
    *{
       margin: 0;
       padding: 0;
+      box-sizing: border-box; 
    }
   
    .logo{
@@ -41,24 +42,31 @@ header{
       border-radius: 40px;
       box-shadow: 0 0 20px white;
   }
-  html,body {
-      height: 100%;
-      margin: 0;
+  body, html {
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: rgba(255, 255, 255, 0.723);
+    color: #2f5f98;
+    display: flex;
+    flex-direction: column;
+  }
+    body {
       display: flex;
       flex-direction: column;
     }
     main {
-      flex: 1;
+      flex: 1; /* ocupa todo o espaço entre header e footer */
+      display: flex;
     }
   
-  footer {
+    footer {
       background-color: #9cccd5;
       color: #3178c6;
       text-align: center;
       padding: 20px;
       font-size: 0.9rem;
-      margin-top: auto;
-  }
+      margin-top: auto; /* fixa no fim */
+    }
   
   /* CSS para adaptar a telas pequenas:*/
 @media (max-width: 768px) {
@@ -67,6 +75,7 @@ header{
     align-items: flex-start;
     padding: 10px 15px;
     font-size: 160%; /* Reduz o tamanho do texto */
+
   }
 
   .logo {
@@ -79,29 +88,25 @@ header{
     .logo img {
       height: 80px;
     }
-  }
- 
+    nav {
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      height: auto;
+      padding: 10px 0;
+      align-items: center;
+      display: flex;
+    }
+  
+    nav a {
+      font-size: 90%;
+      padding: 0.4rem 0.8rem;
+    }
+  .conteudo { flex-direction: column; height: auto; gap:12px; }
+  .fundo_aside, .container { width: 100%; max-width: 100%; flex: none;
+  }}
 
-
-/*Parte do main: */
-
-  nav {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    height: auto;
-    padding: 10px 0;
-    align-items: center;
-    display: flex;
-  }
-
-  nav a {
-    font-size: 90%;
-    padding: 0.4rem 0.8rem;
-  }
-}
-   
   /*Parte do main: */
   
   h1, h2{
@@ -144,42 +149,145 @@ header{
     }
   
     .container {
-      width: 400px;
-      margin: 50px auto;
+      flex: 1 ;
+      min-width: 0; /* essencial para evitar quebra de layout por overflow interno */
       background-color: #ffeefe;
-      padding: 30px;
+      padding: 1px;
       border-radius: 20px;
       color: #2f5f98;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
+      margin: 0;
     }
     
-    .container input[type="email"], .container input[type="password"], .container input[type="text"], .container input[type="date"], .container select{
-    width: 90%;
-    padding: 12px 20px;
-    margin-top: 10px;
-    margin-bottom: 1px;
-    border: none;
-    border-radius: 20px;
-    font-size: 30px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s ease;
-    outline: none;
-    background-color: #e2ccff;
-    color: #3178c6;
+  button.botao-enviar {
+    all: unset; /* Remove estilo padrão do botão */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #2d8bba; 
+    color: #ffdd78;
     padding: 10px 15px;
     border-radius: 30px;
-    text-decoration: none;
     font-weight: bold;
     font-family: Arial, sans-serif;
     transition: background-color 0.3s ease;
-    margin-top: 10px ;
-    margin-bottom: 50px;
-    width: 300px;
-    height: 50px;
-    font-size: 50px;
+    width: 250px;
+    height: 40px;
+    font-size: 25px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  button.botao-enviar:hover {
+    background-color: #1c5571;
   }
 
+  .emocao{
+      margin-top: 15px;
+  }
+  .notas{
+      font-size: 25px;   
+  }
+
+  .notas label {
+      position: relative;
+      margin: 5px;
+      cursor: pointer;
+      font-size: 24px;
+    }
+    
+    .tooltip {
+      visibility: hidden;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 2px 6px;
+      position: absolute;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      font-size: 14px;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    
+    .notas label:hover .tooltip {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* Conteiner de escreva algo a mais*/
+
+    .diario-container {
+      display: flex;
+      height: 100vh; /* ou a altura que você deseja */
+      padding: 1rem;
+      background-color: #f9f5f0;
+    }
+    
+    .diario {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+    }
+    
+    .diario textarea {
+      flex-grow: 1;
+      border: none;
+      resize: none;
+      padding: 1rem;
+      line-height: 1.8;
+      font-size: 1.1rem;
+      color: #383838;
+      font-family: 'Georgia', serif;
+      border-left: 2px solid #2d8bba;
+      border-right: 2px solid #2d8bba;
+      border-top: 2px solid #2d8bba;
+      border-bottom: 2px solid #2d8bba;
+      outline: none;
+      border-radius: 20px;
+      
+    }
   
+/* Para o Aside: */
+/* ASIDE */
+aside {
+  flex: 1;
+  background-color: #ffeefe;
+  padding: 2rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.conteudo {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  padding: 30px;
+  width: 100%;
+  flex: 1;
+  min-height: 0; /* evita overflow dentro do flex */
+}
+
+.fundo_aside {
+  background-color: #ffeefe;
+  padding: 30px;
+  border-radius: 20px;
+  color: #2f5f98;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  flex: 0 0 450px;
+  max-width: 40%;
+}
+
+.duvida{
+  height: 200px;
+  width: auto;
+  
+}

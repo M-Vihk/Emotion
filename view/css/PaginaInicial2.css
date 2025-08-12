@@ -1,0 +1,294 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* BASE */
+  body, html {
+    height: 100%;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: rgba(255, 255, 255, 0.723);
+    color: #2f5f98;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* HEADER */
+  header{
+    background-color: #9cccd5; /* Muda a cor do fundo da header */
+    font-size: 200%; /* Muda o tamanho do texto da header */
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    border-bottom: 1px solid #ccc; 
+  }
+  
+  .logo img {
+    height: 100px;
+  }
+  
+  
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav{
+    width: 100%;
+    display: flex;
+    align-items:center;
+    gap: 30px; /* Ajusta o espaçamento horizontal entre as palavras*/
+    height: 100px; /* Ajusta o espaçamento vertical das palavras com o header*/
+    justify-content:right;
+    background-color: #9cccd5;
+    text-align: center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  .logo{
+    display: flex; 
+    justify-content: space-between; align-items: center; 
+    padding: 10px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+    color: #3178c6;
+    font-size: 100%;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    z-index: 2;
+  }
+  
+  nav a:hover {
+    background-color: rgba(255, 255, 255, 0.723);
+    color: #3178c6;
+    border-radius: 40px;
+    box-shadow: 0 0 20px white;
+  }
+  
+  /* MAIN CONTAINER */
+  .container1 {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    padding: 3rem;
+    justify-content: center;
+  }
+  p{
+    text-align: justify;
+    padding-top: 20px;
+  }
+  /* ASIDE */
+  aside {
+    flex: 0 0 450px; /* não cresce, não encolhe, largura fixa */
+    max-width: 450px; /* garante que não passe disso */
+    background-color: #ffeefe;
+    padding: 2rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .perfil-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+  
+  /* CONTEÚDO */
+  .conteudo {
+    flex: 2;
+    background-color: #ffeefe;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  h1, h2{
+    text-align: center;
+    margin-top: 20px;
+    color: #2f5f98;
+    font-size: 50px;
+}
+  
+  h3{
+    margin-top: 20px;
+    margin-left: 20px ;
+  }
+
+  /* BOTÕES */
+  button[type="submit"] {
+    margin-top: 2rem;
+    align-self: center;
+    background-color: #0099dd;
+    color: #ffdd78;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0077aa;
+  }
+  
+  /* FOOTER */
+  footer {
+    background-color: #9cccd5;
+    color: #3178c6;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    margin-top: auto;
+  }
+  footer p {
+    margin: 0;
+    text-align: center;
+  }
+  
+  /* RESPONSIVIDADE */
+  @media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 15px;
+        font-size: 160%;
+    }
+
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .logo img {
+        height: 80px;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        height: auto;
+        padding: 10px 0;
+    }
+
+    nav a {
+        font-size: 90%;
+        padding: 0.4rem 0.8rem;
+    }
+
+    /* Aqui é o que vai empilhar os containers */
+    .container1 {
+        flex-direction: column; /* agora ficam um em cima do outro */
+        align-items: center;    /* centraliza no eixo transversal */
+        gap: 20px;               /* espaço entre eles */
+        padding: 1.5rem;         /* reduz padding para caber melhor */
+        
+    }
+
+    aside, .conteudo {
+        max-width: 100%;  /* ocupar toda a largura no mobile */
+        flex: none;       /* remove comportamento flex fixo */
+    }
+}
+
+  .boneca{
+    height: 500px;
+    width: auto;
+  }
+
+/* Para o Conteiner 2: */
+  .container {
+    flex: 1 ;
+    min-width: 0; /* essencial para evitar quebra de layout por overflow interno */
+    background-color: #ffeefe;
+    padding: 1px;
+    border-radius: 20px;
+    color: #2f5f98;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    margin: 0;
+  }
+  .emocao{
+    margin-top: 15px;
+}
+.notas{
+    font-size: 25px;   
+}
+.notas label {
+    position: relative;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 24px;
+  }
+  
+  .tooltip {
+    visibility: hidden;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 2px 6px;
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .notas label:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+/* Conteiner de escreva algo a mais*/
+
+.diario-container {
+    display: flex;
+    height: 100vh; /* ou a altura que você deseja */
+    padding: 1rem;
+    background-color: #f9f5f0;
+    
+  }
+  
+  .diario {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .diario textarea {
+    flex-grow: 1;
+    border: none;
+    resize: none;
+    padding: 1rem;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #383838;
+    font-family: 'Georgia', serif;
+    border-left: 2px solid #2d8bba;
+    border-right: 2px solid #2d8bba;
+    border-top: 2px solid #2d8bba;
+    border-bottom: 2px solid #2d8bba;
+    outline: none;
+    border-radius: 20px;
+  }

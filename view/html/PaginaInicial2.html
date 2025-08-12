@@ -1,55 +1,29 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página Inicial</title>
-    <link rel="stylesheet" href="/view/css/PaginaInicial.css">
-    <!--  ><link rel="stylesheet" href="/view/css/menu_hamburguer.css">-->
-    <link rel="website icon" type="png" href="/view/img/SolIcone.png">
-    
+    <title>Perfil do Usuário</title>
+    <link rel="stylesheet" href="../css/PaginaInicial2.css">
+    <link rel="website icon" type="png" href="../img/SolIcone.png">
+    <script type="module" src="../Tela Usuario/fakeBD.ts"></script>
 </head>
 <body>
-  
-
-  <header>
-    <div class="logo">
-      <img src="/view/img/sol.png" alt="Logo do site">
-    </div>
-  
-    <!-- <div class="b-container">
-      <div class="b-menu" id="burger-button">
-        <div class="b-bun b-bun--top"></div>
-        <div class="b-bun b-bun--mid"></div>
-        <div class="b-bun b-bun--bottom"></div>
-      </div>
-    </div>
-  -->
-    <nav class="nav-bar">
-      <a href="PaginaInicial.html">Página Inicial</a>
-      <a href="">Estatísticas</a>
-      <a href="DiarioDigital.html">Diário</a>
-      <a href="TelaUsuario.html">Usuário</a>
-    </nav>
-  </header>
-  
-  <div class="conteudo">
-    <aside class="fundo_aside">
-      <h1>Bem-vindo(a) ao Emotion 💙</h1>
-      <p>
-          Aqui, cada registro é um passo para se conhecer melhor.  
-          Dedique alguns minutos do seu dia para registrar como se sente  
-          você vai se surpreender com o quanto esse hábito pode ajudar  
-          no seu bem-estar emocional.  
-          Vamos juntos nessa jornada de autoconhecimento e equilíbrio! 🌟
-      </p>
-      <img src="/view/img/duvida.png"  class="duvida">
-      
-    </aside>
+    <header>
+        <div class="logo">
+          <img src="../img/sol.png" alt="Logo do site">
+        </div>
+        <nav>
+          <a href="PaginaInicial.html">Página Inicial</a>
+          <a href="">Estatísticas</a>
+          <a href="DiarioDigital.html">Diário</a>
+          <a href="TelaUsuario.html">Usuário</a>
+        </nav>
+      </header>
 <main>
-  <!--<div class="container">
-    <div class="intro">
-        <h1>Bem-vindo(a) ao Emotion 💙</h1>
+   <div class="container1">
+  <aside>
+    <h1>Bem-vindo(a) ao Emotion 💙</h1>
         <p>
             Aqui, cada registro é um passo para se conhecer melhor.  
             Dedique alguns minutos do seu dia para registrar como se sente  
@@ -57,11 +31,11 @@
             no seu bem-estar emocional.  
             Vamos juntos nessa jornada de autoconhecimento e equilíbrio! 🌟
         </p>
-    </div>
-</div> -->
+        <img src="/view/img/boneca.png"  class="boneca">
+  </aside>
 
-<div class="container">
-    <h2>Nota Emocional</h2>
+  <div class="container">
+    <h2>Como você está se sentindo hoje?</h2>
         <h3>Informe aqui nos campos abaixo como você está se sentindo: </h3>
         <center>
         <form id="formEmocoes">
@@ -134,43 +108,11 @@
           <div id="resultado"></div>
           
 </div>
-</div>
-
-
-
-<script>
-  document.getElementById("formEmocoes").addEventListener("submit", function (event) {
-    event.preventDefault(); // Impede o envio padrão do formulário
-
-    // Lista das emoções usadas
-    const emocoes = ["alegria", "tristeza", "ansiedade", "raiva", "medo"];
-    const respostas = {};
-
-    emocoes.forEach(emocao => {
-      const selecionado = document.querySelector(`input[name="${emocao}"]:checked`);
-      if (selecionado) {
-        respostas[emocao] = selecionado.value;
-      } else {
-        respostas[emocao] = null;
-      }
-    });
-
-    // Exibe no console
-    console.log("Emoções selecionadas:", respostas);
-
-    // Você pode salvar no localStorage se quiser:
-    // localStorage.setItem("respostasEmocionais", JSON.stringify(respostas));
-  });
-</script>
-
-
 </main>
 
-    <footer>
-        <p>&copy; Copyright 2025 Black Sheep</p>  
-    </footer> 
-<!--<script src="/view/script/burger.js"></script>  -->   
-
-
+  <footer>
+    <p>&copy; Copyright 2025 Black Sheep</p>  
+  </footer>
+ 
 </body>
 </html>
