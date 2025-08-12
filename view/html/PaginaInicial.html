@@ -112,7 +112,7 @@
              </div>
           
          <center>
-             <button type="submit" class="botao-enviar">Enviar</button>
+             <button id="btn-enviar" type="submit" class="botao-enviar">Enviar</button>
          </center>
          </form>
            
@@ -120,30 +120,6 @@
            
  </div>
  
-<script>
-  document.getElementById("formEmocoes").addEventListener("submit", function (event) {
-    event.preventDefault(); // Impede o envio padrão do formulário
-
-    // Lista das emoções usadas
-    const emocoes = ["alegria", "tristeza", "ansiedade", "raiva", "medo"];
-    const respostas = {};
-
-    emocoes.forEach(emocao => {
-      const selecionado = document.querySelector(`input[name="${emocao}"]:checked`);
-      if (selecionado) {
-        respostas[emocao] = selecionado.value;
-      } else {
-        respostas[emocao] = null;
-      }
-    });
-
-    // Exibe no console
-    console.log("Emoções selecionadas:", respostas);
-
-    // Você pode salvar no localStorage se quiser:
-    // localStorage.setItem("respostasEmocionais", JSON.stringify(respostas));
-  });
-</script>
 
 <script type="module" src="/view/script/validarRegistro.ts"></script>
 
@@ -152,8 +128,6 @@
     <footer>
         <p>&copy; Copyright 2025 Black Sheep</p>  
     </footer> 
-<!--<script src="/view/script/burger.js"></script>  -->   
-
 
 </body>
 </html>

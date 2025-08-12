@@ -1,7 +1,6 @@
 import { SupabaseService } from "../../service/SupabaseService";
 import { MensagemView } from "../components/MensagemView";
 
-const form = document.querySelector("#formEmocoes") as HTMLFormElement;
 const divMensagem = document.querySelector("#resultado") as HTMLDivElement;
 
 const mensagem = new MensagemView(divMensagem);

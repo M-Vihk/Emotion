@@ -70,19 +70,22 @@ export class SupabaseService {
         throw new Error("Usuário não autenticado.");
       }
 
-      // Insere na tabela de emoções
+      const registroHoje = await this.verificarRegistroHoje(user.id);
+      if (registroHoje) {
+        throw new Error("Você já registrou suas emoções hoje.");
+      }
+
       const { error } = await supabase.from("emocoes").insert([
         {
           id_usuario: user.id,
+          data_registro: new Date().toISOString().split("T")[0],
           alegria: alegria,
           tristeza: tristeza,
           ansiedade: ansiedade,
           raiva: raiva,
           medo: medo,
-          data_registro: new Date().toISOString().split("T")[0] // formato YYYY-MM-DD
         }
       ]);
-      console.log( user.id);
 
       if (error) {
         throw new Error("Erro ao salvar notas emocionais: " + error.message);
@@ -92,6 +95,22 @@ export class SupabaseService {
     } catch (err: any) {
       throw new Error(err.message || "Erro inesperado ao salvar notas emocionais.");
     }
+  }
+
+  static async verificarRegistroHoje(userId: string): Promise<boolean> {
+    const hoje = new Date().toISOString().split("T")[0];
+
+    const { data, error } = await supabase
+      .from("emocoes")
+      .select("id")
+      .eq("id_usuario", userId)
+      .eq("data_registro", hoje);
+
+    if (error) {
+      throw new Error("Erro ao verificar registros: " + error.message);
+    }
+
+    return data && data.length > 0;
   }
 
 }
