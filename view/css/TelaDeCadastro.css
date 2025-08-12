@@ -46,6 +46,7 @@ html,body {
     margin: 0;
     display: flex;
     flex-direction: column;
+    font-family: 'Segoe UI', sans-serif;
   }
   main {
     flex: 1;
@@ -91,8 +92,8 @@ h1{
     font-size: 50px;
 }
 
-.botao-cadastrar:hover, .botao-entrar:hover  {
-    background-color: #ffdd78;
+.botao-cadastrar:hover  {
+  background-color: #1c5571;
   }
 
   .botoes {
@@ -176,5 +177,5 @@ h1{
   }
   
   button.botao-entrar:hover {
-    background-color: #28de62;
+    background-color: #1c5571;
   }

@@ -1,262 +1,94 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BASE */
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: rgba(255, 255, 255, 0.723);
+  color: #2f5f98;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
 header{
-    background-color: #9cccd5; /* Muda a cor do fundo da header */
-    font-size: 200%; /* Muda o tamanho do texto da header */
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 30px;
-    border-bottom: 1px solid #ccc; 
-  }
-  
-  .logo img {
-    height: 100px;
-  }
-  
-   *{
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box; 
-   }
-  
-   .logo{
-      display: flex; 
-      justify-content: space-between; align-items: center; 
-      padding: 10px;
-   }
-  
-   a {
-      text-decoration: none;
-      position: relative;
-      cursor: pointer;
-      color: #3178c6;
-      font-size: 100%;
-      padding: 0.5rem 1rem;
-      transition: all 0.3s ease;
-      z-index: 2;
-  }
-  
-  a:hover {
-      background-color: rgba(255, 255, 255, 0.723);
-      color: #3178c6; /* A cor do fundo da header, pra contrastar */
-      border-radius: 40px;
-      box-shadow: 0 0 20px white;
-  }
-  body, html {
-    height: 100%;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: rgba(255, 255, 255, 0.723);
-    color: #2f5f98;
-    display: flex;
-    flex-direction: column;
-  }
-    body {
-      display: flex;
-      flex-direction: column;
-    }
-    main {
-      flex: 1; /* ocupa todo o espaço entre header e footer */
-      display: flex;
-    }
-  
-    footer {
-      background-color: #9cccd5;
-      color: #3178c6;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      margin-top: auto; /* fixa no fim */
-    }
-  
-  /* CSS para adaptar a telas pequenas:*/
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 15px;
-    font-size: 160%; /* Reduz o tamanho do texto */
+  background-color: #9cccd5; /* Muda a cor do fundo da header */
+  font-size: 200%; /* Muda o tamanho do texto da header */
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  border-bottom: 1px solid #ccc; 
+}
 
-  }
+.logo img {
+  height: 100px;
+}
 
-  .logo {
-      display: flex;
-      justify-content: center;  /* Centraliza horizontalmente */
-      align-items: center;      /* Centraliza verticalmente (se necessário) */
-      width: 100%;
-    }
-  
-    .logo img {
-      height: 80px;
-    }
-    nav {
-      width: 100%;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      height: auto;
-      padding: 10px 0;
-      align-items: center;
-      display: flex;
-    }
-  
-    nav a {
-      font-size: 90%;
-      padding: 0.4rem 0.8rem;
-    }
-  .conteudo { flex-direction: column; height: auto; gap:12px; }
-  .fundo_aside, .container { width: 100%; max-width: 100%; flex: none;
-  }}
 
-  /*Parte do main: */
-  
-  h1, h2{
-      text-align: center;
-      margin-top: 20px;
-      color: #2f5f98;
-      font-size: 50px;
-  }
-  
-  .botao-cadastrar:hover, .botao-entrar:hover  {
-      background-color: #ffdd78;
-    }
-  
-    .botoes {
-      display: flex;
-      flex-direction: column; 
-      align-items: center;     /* centraliza na horizontal */
-      gap: 8px;               /* espaço entre os botões */
-      margin-top: 30px;
-  }
-  
-    .botao-entrar {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background-color: #2d8bba; 
-      color: #ffdd78;
-      padding: 10px 15px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      font-family: Arial, sans-serif;
-      transition: background-color 0.3s ease;
-      margin-top: 5px ;
-      margin-bottom: 50px;
-      width: 250px;
-      height: 40px;
-      font-size: 25px;
-    }
-  
-    .container {
-      flex: 1 ;
-      min-width: 0; /* essencial para evitar quebra de layout por overflow interno */
-      background-color: #ffeefe;
-      padding: 1px;
-      border-radius: 20px;
-      color: #2f5f98;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      margin: 0;
-    }
-    
-  button.botao-enviar {
-    all: unset; /* Remove estilo padrão do botão */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background-color: #2d8bba; 
-    color: #ffdd78;
-    padding: 10px 15px;
-    border-radius: 30px;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    transition: background-color 0.3s ease;
-    width: 250px;
-    height: 40px;
-    font-size: 25px;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-  
-  button.botao-enviar:hover {
-    background-color: #1c5571;
-  }
+*{
+  margin: 0;
+  padding: 0;
+}
 
-  .emocao{
-      margin-top: 15px;
-  }
-  .notas{
-      font-size: 25px;   
-  }
+nav{
+  width: 100%;
+  display: flex;
+  align-items:center;
+  gap: 30px; /* Ajusta o espaçamento horizontal entre as palavras*/
+  height: 100px; /* Ajusta o espaçamento vertical das palavras com o header*/
+  justify-content:right;
+  background-color: #9cccd5;
+  text-align: center;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.logo{
+  display: flex; 
+  justify-content: space-between; align-items: center; 
+  padding: 10px;
+}
 
-  .notas label {
-      position: relative;
-      margin: 5px;
-      cursor: pointer;
-      font-size: 24px;
-    }
-    
-    .tooltip {
-      visibility: hidden;
-      background-color: #333;
-      color: #fff;
-      text-align: center;
-      border-radius: 6px;
-      padding: 2px 6px;
-      position: absolute;
-      bottom: 125%;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1;
-      font-size: 14px;
-      white-space: nowrap;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    
-    .notas label:hover .tooltip {
-      visibility: visible;
-      opacity: 1;
-    }
+nav a {
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  color: #3178c6;
+  font-size: 100%;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
 
-    /* Conteiner de escreva algo a mais*/
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.723);
+  color: #3178c6;
+  border-radius: 40px;
+  box-shadow: 0 0 20px white;
+}
 
-    .diario-container {
-      display: flex;
-      height: 100vh; /* ou a altura que você deseja */
-      padding: 1rem;
-      background-color: #f9f5f0;
-    }
-    
-    .diario {
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-    }
-    
-    .diario textarea {
-      flex-grow: 1;
-      border: none;
-      resize: none;
-      padding: 1rem;
-      line-height: 1.8;
-      font-size: 1.1rem;
-      color: #383838;
-      font-family: 'Georgia', serif;
-      border-left: 2px solid #2d8bba;
-      border-right: 2px solid #2d8bba;
-      border-top: 2px solid #2d8bba;
-      border-bottom: 2px solid #2d8bba;
-      outline: none;
-      border-radius: 20px;
-      
-    }
-  
-/* Para o Aside: */
+/* MAIN CONTAINER */
+.container1 {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  padding: 3rem;
+  justify-content: center;
+}
+p{
+  text-align: justify;
+  padding-top: 20px;
+}
 /* ASIDE */
 aside {
-  flex: 1;
+  flex: 0 0 450px; /* não cresce, não encolhe, largura fixa */
+  max-width: 450px; /* garante que não passe disso */
   background-color: #ffeefe;
   padding: 2rem;
   border-radius: 20px;
@@ -266,28 +98,197 @@ aside {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.conteudo {
-  display: flex;
-  gap: 30px;
-  align-items: flex-start;
-  padding: 30px;
-  width: 100%;
-  flex: 1;
-  min-height: 0; /* evita overflow dentro do flex */
+.perfil-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 1rem;
 }
 
-.fundo_aside {
+/* CONTEÚDO */
+.conteudo {
+  flex: 2;
   background-color: #ffeefe;
-  padding: 30px;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h1, h2{
+  text-align: center;
+  margin-top: 20px;
+  color: #2f5f98;
+  font-size: 50px;
+}
+
+h3{
+  margin-top: 20px;
+  margin-left: 20px ;
+}
+
+/* BOTÕES */
+button[type="submit"] {
+  margin-top: 2rem;
+  align-self: center;
+  background-color: #0099dd;
+  color: #ffdd78;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #0077aa;
+}
+
+/* FOOTER */
+footer {
+  background-color: #9cccd5;
+  color: #3178c6;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+footer p {
+  margin: 0;
+  text-align: center;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  header {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px 15px;
+      font-size: 160%;
+  }
+
+  .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+  }
+  
+  .logo img {
+      height: 80px;
+  }
+
+  nav {
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      height: auto;
+      padding: 10px 0;
+  }
+
+  nav a {
+      font-size: 90%;
+      padding: 0.4rem 0.8rem;
+  }
+
+  /* Aqui é o que vai empilhar os containers */
+  .container1 {
+      flex-direction: column; /* agora ficam um em cima do outro */
+      align-items: center;    /* centraliza no eixo transversal */
+      gap: 20px;               /* espaço entre eles */
+      padding: 1.5rem;         /* reduz padding para caber melhor */
+      
+  }
+
+  aside, .conteudo {
+      max-width: 100%;  /* ocupar toda a largura no mobile */
+      flex: none;       /* remove comportamento flex fixo */
+  }
+}
+
+.boneca{
+  height: 500px;
+  width: auto;
+}
+
+/* Para o Conteiner 2: */
+.container {
+  flex: 1 ;
+  min-width: 0; /* essencial para evitar quebra de layout por overflow interno */
+  background-color: #ffeefe;
+  padding: 1px;
   border-radius: 20px;
   color: #2f5f98;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  flex: 0 0 450px;
-  max-width: 40%;
+  margin: 0;
+}
+.emocao{
+  margin-top: 15px;
+}
+.notas{
+  font-size: 25px;   
+}
+.notas label {
+  position: relative;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 24px;
 }
 
-.duvida{
-  height: 200px;
-  width: auto;
+.tooltip {
+  visibility: hidden;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 2px 6px;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.notas label:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+/* Conteiner de escreva algo a mais*/
+
+.diario-container {
+  display: flex;
+  height: 100vh; /* ou a altura que você deseja */
+  padding: 1rem;
+  background-color: #f9f5f0;
   
+}
+
+.diario {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.diario textarea {
+  flex-grow: 1;
+  border: none;
+  resize: none;
+  padding: 1rem;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  color: #383838;
+  font-family: 'Georgia', serif;
+  border-left: 2px solid #2d8bba;
+  border-right: 2px solid #2d8bba;
+  border-top: 2px solid #2d8bba;
+  border-bottom: 2px solid #2d8bba;
+  outline: none;
+  border-radius: 20px;
 }

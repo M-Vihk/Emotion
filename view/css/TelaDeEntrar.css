@@ -45,6 +45,7 @@ html,body {
     margin: 0;
     display: flex;
     flex-direction: column;
+    font-family: 'Segoe UI', sans-serif;
   }
   main {
     flex: 1;
@@ -175,7 +176,7 @@ h1{
   }
   
   button.botao-entrar:hover {
-    background-color: #28de62;
+    background-color: #1c5571;
   }
   
   
