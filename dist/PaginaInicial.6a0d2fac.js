@@ -160,15 +160,15 @@
       });
     }
   }
-})({"apsUA":[function(require,module,exports,__globalThis) {
+})({"8mBFa":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SERVER_PORT = 1234;
 var HMR_SECURE = false;
-var HMR_ENV_HASH = "d6ea1d42532a7575";
+var HMR_ENV_HASH = "439701173a9199ea";
 var HMR_USE_SSE = false;
-module.bundle.HMR_BUNDLE_ID = "a63ad78f0f01ae75";
+module.bundle.HMR_BUNDLE_ID = "1b0f0eee6a0d2fac";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_SERVER_PORT, HMR_ENV_HASH, HMR_SECURE, HMR_USE_SSE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -666,8 +666,33 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     }
 }
 
-},{}],"byCOx":[function(require,module,exports,__globalThis) {
+},{}],"bMjY6":[function(require,module,exports,__globalThis) {
+var _supabaseService = require("../../service/SupabaseService");
+var _mensagemView = require("../components/MensagemView");
+const form = document.querySelector("#formEmocoes");
+const divMensagem = document.querySelector("#resultado");
+const mensagem = new (0, _mensagemView.MensagemView)(divMensagem);
+let btnEnviar = document.getElementById("btn-enviar");
+btnEnviar.onclick = async (e)=>{
+    e.preventDefault(); // evita submit automático do formulário
+    console.log("Bot\xe3o Enviar clicado");
+    const alegria = Number(document.querySelector('input[name="alegria"]:checked')?.value);
+    const tristeza = Number(document.querySelector('input[name="tristeza"]:checked')?.value);
+    const ansiedade = Number(document.querySelector('input[name="ansiedade"]:checked')?.value);
+    const raiva = Number(document.querySelector('input[name="raiva"]:checked')?.value);
+    const medo = Number(document.querySelector('input[name="medo"]:checked')?.value);
+    if (!alegria || !tristeza || !ansiedade || !raiva || !medo) {
+        mensagem.mostrarErro("Por favor, selecione uma nota para todas as emo\xe7\xf5es.");
+        return;
+    }
+    try {
+        await (0, _supabaseService.SupabaseService).salvarEmocoes(alegria, tristeza, ansiedade, raiva, medo);
+        mensagem.mostrarSucesso("Emo\xe7\xf5es salvas com sucesso!");
+    } catch (error) {
+        mensagem.mostrarErro("Erro ao salvar emo\xe7\xf5es. Tente novamente.");
+    }
+};
 
-},{}]},["apsUA","byCOx"], "byCOx", "parcelRequiree55a", {})
+},{"../../service/SupabaseService":"gr4uh","../components/MensagemView":"hKnv0"}]},["8mBFa","bMjY6"], "bMjY6", "parcelRequiree55a", {})
 
-//# sourceMappingURL=PaginaInicial.0f01ae75.js.map
+//# sourceMappingURL=PaginaInicial.6a0d2fac.js.map

@@ -5,12 +5,12 @@ header {
   align-items: center;
   padding: 10px 30px;
   font-family: Impact, Haettenschweiler, Arial Narrow Bold, sans-serif;
-  font-size: 250%;
+  font-size: 200%;
   display: flex;
 }
 
 .logo img {
-  height: 120px;
+  height: 100px;
 }
 
 * {
@@ -76,9 +76,16 @@ main {
   display: flex;
 }
 
+h1 {
+  text-align: center;
+  color: #2f5f98;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 50px;
+}
+
 .diario {
-  background: linear-gradient(to right, #fffaf0 50% 50%);
-  border: 1px solid #ccc;
+  background: linear-gradient(to right, #e6ccf7 50% 50%);
   border-right: 70px;
   border-radius: 12px;
   flex-direction: column;
@@ -88,54 +95,57 @@ main {
   padding: 2rem;
   display: flex;
   position: relative;
-  box-shadow: 0 0 20px #0003;
+  box-shadow: 0 0 10px #00000080;
 }
 
 .diario textarea {
   resize: none;
-  color: #383838;
-  background: repeating-linear-gradient(#fffaf0, #fffaf0 28px, #e8dccc 29px, #fffaf0 30px);
-  border: none;
-  border-left: 2px solid #c49e84;
-  border-right: 2px solid #c49e84;
+  color: #3b3b3b;
+  background-color: #f2eaf8;
+  border: 2px solid #b488e6;
   border-radius: 6px;
   outline: none;
   flex-grow: 1;
+  min-height: 100px;
   padding: 1rem;
   font-family: Georgia, serif;
   font-size: 1.1rem;
   line-height: 1.8;
-  box-shadow: inset 0 0 8px #0000001a;
+  box-shadow: inset 0 0 8px #0000000a;
 }
 
 button {
   cursor: pointer;
+  text-align: center;
   border: none;
-  border-radius: 8px;
-  margin: 4px;
-  padding: 9px 5px;
-  font-size: 1rem;
+  border-radius: 30px;
+  align-self: center;
+  width: 200px;
+  height: 50px;
+  margin: 10px 0;
+  padding: 12px;
+  font-size: 1.1rem;
   font-weight: bold;
   transition: background-color .3s, transform .2s;
 }
 
 button[type="submit"], button[onclick*="salvarDiario"] {
-  color: #fff;
+  color: #4a4a4a;
   background-color: #79b8f9;
 }
 
 button[type="submit"]:hover, button[onclick*="salvarDiario"]:hover {
-  background-color: #3178c6;
+  background-color: #7ab4d9;
   transform: scale(1.03);
 }
 
 button[onclick*="excluirDiario"] {
-  color: #fff;
-  background-color: #f77979;
+  color: #4a4a4a;
+  background-color: #b488e6;
 }
 
 button[onclick*="excluirDiario"]:hover {
-  background-color: #d64545;
+  background-color: #884cc9;
   transform: scale(1.03);
 }
 
@@ -182,19 +192,10 @@ footer {
   }
 }
 
-input[type="date"] {
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  width: 100%;
-  margin-bottom: 1rem;
-  padding: .5rem;
-}
-
-h1 {
-  text-align: center;
-  color: #9cccd5;
-  margin-top: 20px;
-  margin-bottom: 20px;
+input, textarea, button, h2, h3, p, label {
+  padding: 10px;
+  font-family: Georgia, serif;
+  font-size: 1rem;
 }
 
 hr {
@@ -218,18 +219,18 @@ hr {
 }
 
 .entrada-item {
-  border-bottom: 1px solid #9cccd5;
+  border-bottom: 1px solid #93c3cc;
   justify-content: space-between;
   padding: 6px;
   display: flex;
 }
 
 .entrada-item button {
-  color: #fff;
+  color: #e72a2a;
   cursor: pointer;
   background-color: #a34caf;
   border: none;
-  border-radius: 5px;
+  border-radius: 50px;
   padding: 4px 8px;
 }
 /*# sourceMappingURL=DiarioDigital.acb33430.css.map */

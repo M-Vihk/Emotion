@@ -1,5 +1,5 @@
-import { SupabaseService } from "../../service/SupabaseService.js";
-import { MensagemView } from "../components/MensagemView.js";
+import { SupabaseService } from "../../service/SupabaseService";
+import { MensagemView } from "../components/MensagemView";
 
 const form = document.querySelector("#form-login") as HTMLFormElement;
 const divMensagem = document.querySelector("#mensagem") as HTMLDivElement;
