@@ -137,25 +137,23 @@ button {
 }
 
 /* Botão Salvar */
-button[type="submit"],
-button[onclick*="salvarDiario"] {
+#salvar {
   background-color: #79b8f9;
   color:#4a4a4a;
 }
 
-button[type="submit"]:hover,
-button[onclick*="salvarDiario"]:hover {
+#salvar:hover {
   background-color: #7ab4d9;
   transform: scale(1.03);
 }
 
 /* Botão Excluir */
-button[onclick*="excluirDiario"] {
+#excluir, #excluir-todos {
   background-color: #b488e6;
   color: #4a4a4a;
 }
 
-button[onclick*="excluirDiario"]:hover {
+#excluir:hover, #excluir-todos:hover {
   background-color: #884cc9;
   transform: scale(1.03);
 }

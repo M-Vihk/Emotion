@@ -28,7 +28,9 @@ export class SupabaseService {
       ]);
 
       if (insertError) {
-        throw new Error("Erro ao salvar dados extra do usuario: " + insertError.message);
+        throw new Error(
+          "Erro ao salvar dados extra do usuario: " + insertError.message
+        );
       }
 
       console.log("Usuário cadastrado com sucesso!", data.user);
@@ -37,7 +39,6 @@ export class SupabaseService {
     }
   }
 
-
   static async getUsuarioAutenticado() {
     const { data: { user }, error } = await supabase.auth.getUser();
     if (error || !user) {
@@ -45,7 +46,6 @@ export class SupabaseService {
     }
     return user;
   }
-
 
   static async fazerLogin(email: string, senha: string): Promise<any> {
     try {
@@ -60,10 +60,9 @@ export class SupabaseService {
 
       return data.user;
     } catch (err: any) {
-      throw new Error(err.message || 'Erro inesperado ao fazer login.');
+      throw new Error(err.message || "Erro inesperado ao fazer login.");
     }
   }
-
 
   static async salvarEmocoes(
     alegria: number,
@@ -73,7 +72,10 @@ export class SupabaseService {
     medo: number
   ): Promise<void> {
     try {
-      const { data: { user }, error: userError } = await supabase.auth.getUser();
+      const {
+        data: { user },
+        error: userError,
+      } = await supabase.auth.getUser();
 
       if (userError || !user) {
         throw new Error("Usuário não autenticado.");
@@ -93,7 +95,7 @@ export class SupabaseService {
           ansiedade: ansiedade,
           raiva: raiva,
           medo: medo,
-        }
+        },
       ]);
 
       if (error) {
@@ -102,7 +104,9 @@ export class SupabaseService {
 
       console.log("Notas emocionais salvas com sucesso!");
     } catch (err: any) {
-      throw new Error(err.message || "Erro inesperado ao salvar notas emocionais.");
+      throw new Error(
+        err.message || "Erro inesperado ao salvar notas emocionais."
+      );
     }
   }
 
@@ -130,10 +134,15 @@ export class SupabaseService {
       .single();
 
     if (errorUsuario) {
-      throw new Error("Erro ao buscar dados do usuário: " + errorUsuario.message);
+      throw new Error(
+        "Erro ao buscar dados do usuário: " + errorUsuario.message
+      );
     }
 
-    const { data: { user }, error: errorAuth } = await supabase.auth.getUser();
+    const {
+      data: { user },
+      error: errorAuth,
+    } = await supabase.auth.getUser();
 
     if (errorAuth || !user) {
       throw new Error("Erro ao obter email do usuário autenticado.");
@@ -156,6 +165,34 @@ export class SupabaseService {
       console.log("Usuário desconectado com sucesso!");
     } catch (err: any) {
       throw new Error(err.message || "Erro inesperado ao sair.");
+    }
+  }
+
+  static async salvarDiario(titulo: string, data: string,pensamentos: string): Promise<void> {
+
+    try {
+      const { data: { user }, error: userError} = await supabase.auth.getUser();
+
+      if (userError || !user) {
+        throw new Error("Usuário não autenticado.");
+      }
+
+      const { error } = await supabase.from("diario").insert([
+        {
+          id_usuario: user.id,
+          titulo: titulo,
+          data: data,
+          pensamentos: pensamentos,
+        },
+      ]);
+
+      if (error) {
+        throw new Error("Erro ao salvar o diário: " + error.message);
+      }
+
+      console.log("Entrada do diário salva com sucesso!");
+    } catch (err: any) {
+      throw new Error(err.message || "Erro inesperado ao salvar o diário.");
     }
   }
 
