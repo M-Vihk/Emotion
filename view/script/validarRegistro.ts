@@ -1,11 +1,24 @@
 import { SupabaseService } from "../../service/SupabaseService";
 import { MensagemView } from "../components/MensagemView";
 
-const divMensagem = document.querySelector("#resultado") as HTMLDivElement;
+async function verificarUsuarioLogado() {
+  const user = await SupabaseService.getUsuarioAutenticado();
 
-const mensagem = new MensagemView(divMensagem);
+  if (!user) {
+    alert("Usuário não logado!");
+    window.location.href = "login.html";
+    return false;
+  }
+  return true;
+}
 
-let btnEnviar = document.getElementById("btn-enviar") as HTMLButtonElement;
+verificarUsuarioLogado();
+
+const divMensagem : HTMLDivElement = document.querySelector("#resultado") as HTMLDivElement;
+
+const mensagem : MensagemView = new MensagemView(divMensagem);
+
+let btnEnviar : HTMLButtonElement = document.getElementById("btn-enviar") as HTMLButtonElement;
 
 btnEnviar.onclick = async (e: MouseEvent) => {
   e.preventDefault(); // evita submit automático do formulário

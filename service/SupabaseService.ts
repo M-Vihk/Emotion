@@ -38,6 +38,15 @@ export class SupabaseService {
   }
 
 
+  static async getUsuarioAutenticado() {
+    const { data: { user }, error } = await supabase.auth.getUser();
+    if (error || !user) {
+      return null;
+    }
+    return user;
+  }
+
+
   static async fazerLogin(email: string, senha: string): Promise<any> {
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
@@ -111,6 +120,43 @@ export class SupabaseService {
     }
 
     return data && data.length > 0;
+  }
+
+  static async buscarDadosUsuario(userId: string) {
+    const { data: dadosUsuario, error: errorUsuario } = await supabase
+      .from("usuarios")
+      .select("nome, nascimento, genero")
+      .eq("id", userId)
+      .single();
+
+    if (errorUsuario) {
+      throw new Error("Erro ao buscar dados do usuário: " + errorUsuario.message);
+    }
+
+    const { data: { user }, error: errorAuth } = await supabase.auth.getUser();
+
+    if (errorAuth || !user) {
+      throw new Error("Erro ao obter email do usuário autenticado.");
+    }
+
+    return {
+      nome: dadosUsuario.nome,
+      nascimento: dadosUsuario.nascimento,
+      genero: dadosUsuario.genero,
+      email: user.email,
+    };
+  }
+
+  static async sair(): Promise<void> {
+    try {
+      const { error } = await supabase.auth.signOut();
+      if (error) {
+        throw new Error("Erro ao sair: " + error.message);
+      }
+      console.log("Usuário desconectado com sucesso!");
+    } catch (err: any) {
+      throw new Error(err.message || "Erro inesperado ao sair.");
+    }
   }
 
 }

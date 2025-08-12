@@ -23,9 +23,8 @@
    <main class="container">
   <aside>
     <img src="../img/user.png" alt="Foto de perfil de Vitória" class="perfil-img" />
-    <button class="btn-alterar-foto">Alterar Foto</button>
     <h2>Perfil</h2>
-    <button class="btn-sair" onclick="window.location.href='login.html'">Sair da Conta</button>
+    <button class="btn-sair" id="btn-sair" onclick="window.location.href='login.html'">Sair da Conta</button>
   </aside>
 
   <section class="conteudo">
@@ -34,28 +33,22 @@
         <legend>Dados Pessoais</legend>
         <label>Nome Completo
           <div style="display: flex; gap: 10px; align-items: center;">
-            <input type="text" id="nomeCompleto" value="Vitória" disabled />
-            <button type="button" class="btn-alterar-nome" onclick="habilitarEdicaoNome()">Alterar Nome</button>
+            <input type="text" id="nomeCompleto" value="" disabled />
           </div>
         </label>
 
         <label>E-mail
-          <input type="email" value="vitoria@email.com" />
+          <input type="email"  id="email" value="" disabled/>
         </label>
 
         <label>Data de Nascimento
-          <input type="date" value="1995-08-12" />
+          <input type="date" id="dataNasc" value="" disabled/>
         </label>
+
         <label>Sexo
-          <select>
-            <option>Feminino</option>
-            <option>Masculino</option>
-            <option>Outro</option>
-          </select>
+          <input type="text" id="genero" value="" disabled />
         </label>
       </fieldset>
-
-      <button type="submit">Salvar</button>
     </form>
   </section>
 </main>
@@ -63,6 +56,6 @@
   <footer>
     <p>&copy; Copyright 2025 Black Sheep</p>  
   </footer>
- 
+  <script type="module" src="/view/script/carregarUsuario.ts"></script>
 </body>
 </html>
