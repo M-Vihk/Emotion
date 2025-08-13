@@ -1,13 +1,8 @@
 import { supabase } from "./supabaseClient.js";
 
 export class SupabaseService {
-  static async salvarNoBanco(
-    nome: string,
-    email: string,
-    senha: string,
-    dataNasc: string,
-    genero: string
-  ): Promise<void> {
+  
+  static async salvarNoBanco(nome: string, email: string, senha: string, dataNasc: string, genero: string): Promise<void> {
     try {
       const { data, error } = await supabase.auth.signUp({
         email: email,
@@ -40,7 +35,10 @@ export class SupabaseService {
   }
 
   static async getUsuarioAutenticado() {
-    const { data: { user }, error } = await supabase.auth.getUser();
+    const {
+      data: { user },
+      error,
+    } = await supabase.auth.getUser();
     if (error || !user) {
       return null;
     }
@@ -64,13 +62,7 @@ export class SupabaseService {
     }
   }
 
-  static async salvarEmocoes(
-    alegria: number,
-    tristeza: number,
-    ansiedade: number,
-    raiva: number,
-    medo: number
-  ): Promise<void> {
+  static async salvarEmocoes(alegria: number, tristeza: number, ansiedade: number, raiva: number, medo: number): Promise<void> {
     try {
       const {
         data: { user },
@@ -168,10 +160,12 @@ export class SupabaseService {
     }
   }
 
-  static async salvarDiario(titulo: string, data: string,pensamentos: string): Promise<void> {
-
+  static async salvarDiario(titulo: string, data: string, pensamentos: string): Promise<void> {
     try {
-      const { data: { user }, error: userError} = await supabase.auth.getUser();
+      const {
+        data: { user },
+        error: userError,
+      } = await supabase.auth.getUser();
 
       if (userError || !user) {
         throw new Error("Usuário não autenticado.");
@@ -193,6 +187,31 @@ export class SupabaseService {
       console.log("Entrada do diário salva com sucesso!");
     } catch (err: any) {
       throw new Error(err.message || "Erro inesperado ao salvar o diário.");
+    }
+  }
+
+  static async listarDiarios(): Promise<any[]> {
+    try {
+      const { data: { user }, error: userError, } = await supabase.auth.getUser();
+
+      if (userError || !user) {
+        throw new Error("Usuário não autenticado.");
+      }
+
+      const { data, error } = await supabase
+        .from("diario")
+        .select("*")
+        .eq("id_usuario", user.id)
+        .order("data", { ascending: false });
+
+      if (error) {
+        throw new Error("Erro ao buscar o diário: " + error.message);
+      }
+
+      return data || [];
+
+    } catch (err: any) {
+      throw new Error(err.message || "Erro inesperado ao listar o diário.");
     }
   }
 
