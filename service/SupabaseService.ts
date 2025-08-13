@@ -302,5 +302,4 @@ export class SupabaseService {
     return lista;
   }
 
-  
 }

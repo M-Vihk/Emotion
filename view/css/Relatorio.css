@@ -1,244 +1,318 @@
 /* HEADER */
-header{
-    background-color: #9cccd5; /* Muda a cor do fundo da header */
-    font-size: 200%; /* Muda o tamanho do texto da header */
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+header {
+  background-color: #9cccd5;
+  /* Muda a cor do fundo da header */
+  font-size: 200%;
+  /* Muda o tamanho do texto da header */
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  border-bottom: 1px solid #ccc;
+}
+
+.logo img {
+  height: 100px;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  /* Ajusta o espaçamento horizontal entre as palavras*/
+  height: 100px;
+  /* Ajusta o espaçamento vertical das palavras com o header*/
+  justify-content: right;
+  background-color: #9cccd5;
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  color: #3178c6;
+  font-size: 100%;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.723);
+  color: #3178c6;
+  border-radius: 40px;
+  box-shadow: 0 0 20px white;
+}
+
+.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+a {
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  color: #3178c6;
+  font-size: 100%;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+a:hover {
+  background-color: rgba(255, 255, 255, 0.723);
+  color: #3178c6;
+  /* A cor do fundo da header, pra contrastar */
+  border-radius: 40px;
+  box-shadow: 0 0 20px white;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  background-color: #9cccd5;
+  color: #3178c6;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+/* CSS para adaptar a telas pequenas:*/
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;
+    font-size: 160%;
+    /* Reduz o tamanho do texto */
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    align-items: center;
+    /* Centraliza verticalmente (se necessário) */
+    width: 100%;
+  }
+
+  .logo img {
+    height: 80px;
+  }
+
+}
+
+/*Parte do main: */
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  color: #2f5f98;
+  font-size: 50px;
+}
+
+h2 {
+  text-align: justify;
+  margin: 20px;
+  color: #2f5f98;
+  font-size: 20px;
+}
+
+.botao-cadastrar:hover,
+.botao-entrar:hover {
+  background-color: #ffdd78;
+}
+
+.botoes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* centraliza na horizontal */
+  gap: 8px;
+  /* espaço entre os botões */
+  margin-top: 30px;
+}
+
+.botao-entrar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #2d8bba;
+  color: #ffdd78;
+  padding: 10px 15px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s ease;
+  margin-top: 5px;
+  margin-bottom: 50px;
+  width: 250px;
+  height: 40px;
+  font-size: 25px;
+}
+
+.container {
+  width: 400px;
+  margin: 50px auto;
+  background-color: #ffeefe;
+  padding: 30px;
+  border-radius: 20px;
+  color: #2f5f98;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.container input[type="email"],
+.container input[type="password"] {
+  width: 90%;
+  padding: 12px 20px;
+  margin-top: 10px;
+  margin-bottom: 1px;
+  border: none;
+  border-radius: 20px;
+  font-size: 30px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+  outline: none;
+  background-color: #e2ccff;
+  color: #3178c6;
+
+}
+
+.container input[type="email"]:focus,
+.container input[type="password"]:focus {
+  box-shadow: 0 0 8px #79b8f9;
+}
+
+button.botao-entrar {
+  all: unset;
+  /* Remove estilo padrão do botão */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #2d8bba;
+  color: #ffdd78;
+  padding: 10px 15px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s ease;
+  width: 250px;
+  height: 40px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+button.botao-entrar:hover {
+  background-color: #1c5571;
+}
+
+/* BOTÕES */
+#gerar-relatorio {
+  margin: 2rem;
+  align-self: center;
+  background-color: #0099dd;
+  color: #ffdd78;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+
+#gerar-relatorio:hover {
+  background-color: #0077aa;
+}
+
+/* Resultados do relatório */
+#resultado-relatorio {
+    background-color: #f4faff; /* Fundo suave */
+    border-radius: 15px;
+    padding: 20px;
+    width: 400px;
+    margin: 20px auto;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+    color: #2f5f98;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Títulos internos */
+#resultado-relatorio h3 {
+    font-size: 1.3rem;
+    color: #3178c6;
+    border-bottom: 2px solid #9cccd5;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+/* Lista de médias */
+#lista-medias {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#lista-medias li {
+    background-color: #e2ccff;
+    margin-bottom: 8px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 1rem;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 10px 30px;
-    border-bottom: 1px solid #ccc; 
-  }
-  
-  .logo img {
-    height: 100px;
-  }
-  
-  
-  *{
-    margin: 0;
-    padding: 0;
-  }
-  
-  nav{
-    width: 100%;
-    display: flex;
-    align-items:center;
-    gap: 30px; /* Ajusta o espaçamento horizontal entre as palavras*/
-    height: 100px; /* Ajusta o espaçamento vertical das palavras com o header*/
-    justify-content:right;
-    background-color: #9cccd5;
-    text-align: center;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
-  .logo{
-    display: flex; 
-    justify-content: space-between; align-items: center; 
-    padding: 10px;
-  }
-  
-  nav a {
-    text-decoration: none;
-    position: relative;
-    cursor: pointer;
-    color: #3178c6;
-    font-size: 100%;
-    padding: 0.5rem 1rem;
-    transition: all 0.3s ease;
-    z-index: 2;
-  }
-  
-  nav a:hover {
-    background-color: rgba(255, 255, 255, 0.723);
-    color: #3178c6;
-    border-radius: 40px;
-    box-shadow: 0 0 20px white;
-  }
-  
-   .logo{
-      display: flex; 
-      justify-content: space-between; align-items: center; 
-      padding: 10px;
-   }
-  
-   a {
-      text-decoration: none;
-      position: relative;
-      cursor: pointer;
-      color: #3178c6;
-      font-size: 100%;
-      padding: 0.5rem 1rem;
-      transition: all 0.3s ease;
-      z-index: 2;
-  }
-  
-  a:hover {
-      background-color: rgba(255, 255, 255, 0.723);
-      color: #3178c6; /* A cor do fundo da header, pra contrastar */
-      border-radius: 40px;
-      box-shadow: 0 0 20px white;
-  }
-  html,body {
-      height: 100%;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      font-family: 'Segoe UI', sans-serif;
-    }
-    main {
-      flex: 1;
-    }
-  
-  footer {
-      background-color: #9cccd5;
-      color: #3178c6;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      margin-top: auto;
-  }
-  
-  /* CSS para adaptar a telas pequenas:*/
-  @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 10px 15px;
-        font-size: 160%; /* Reduz o tamanho do texto */
-      }
-    
-      .logo {
-          display: flex;
-          justify-content: center;  /* Centraliza horizontalmente */
-          align-items: center;      /* Centraliza verticalmente (se necessário) */
-          width: 100%;
-        }
-      
-        .logo img {
-          height: 80px;
-        }
-    
-    }
-   
-  /*Parte do main: */
-  
-  h1{
-      text-align: center;
-      margin-top: 20px;
-      color: #2f5f98;
-      font-size: 50px;
-  }
-  h2{
-    text-align:justify;
-    margin: 20px;
-    color: #2f5f98;
-    font-size: 20px;
+    font-weight: bold;
 }
-  .botao-cadastrar:hover, .botao-entrar:hover  {
-      background-color: #ffdd78;
-    }
-  
-    .botoes {
-      display: flex;
-      flex-direction: column; 
-      align-items: center;     /* centraliza na horizontal */
-      gap: 8px;               /* espaço entre os botões */
-      margin-top: 30px;
-  }
-  
-    .botao-entrar {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background-color: #2d8bba; 
-      color: #ffdd78;
-      padding: 10px 15px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      font-family: Arial, sans-serif;
-      transition: background-color 0.3s ease;
-      margin-top: 5px ;
-      margin-bottom: 50px;
-      width: 250px;
-      height: 40px;
-      font-size: 25px;
-    }
-  
-    .container {
-      width: 400px;
-      margin: 50px auto;
-      background-color: #ffeefe;
-      padding: 30px;
-      border-radius: 20px;
-      color: #2f5f98;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-    
-    .container input[type="email"], .container input[type="password"] {
-    width: 90%;
-    padding: 12px 20px;
-    margin-top: 10px;
-    margin-bottom: 1px;
-    border: none;
-    border-radius: 20px;
-    font-size: 30px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s ease;
-    outline: none;
-    background-color: #e2ccff;
-    color: #3178c6;
-    
-  }
-  
-  .container input[type="email"]:focus, .container input[type="password"]:focus {
-      box-shadow: 0 0 8px #79b8f9;
-    }
-    
-    button.botao-entrar {
-      all: unset; /* Remove estilo padrão do botão */
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background-color: #2d8bba; 
-      color: #ffdd78;
-      padding: 10px 15px;
-      border-radius: 30px;
-      font-weight: bold;
-      font-family: Arial, sans-serif;
-      transition: background-color 0.3s ease;
-      width: 250px;
-      height: 40px;
-      font-size: 25px;
-      cursor: pointer;
-    }
-    
-    button.botao-entrar:hover {
-      background-color: #1c5571;
-    }
-    
-    /* BOTÕES */
-    #gerar-relatorio {
-        margin: 2rem;
-        align-self: center;
-        background-color: #0099dd;
-        color: #ffdd78;
-        border: none;
-        padding: 0.8rem 2rem;
-        border-radius: 25px;
-        font-weight: bold;
-        font-size: 1.2rem;
-        cursor: pointer;
-        transition: background 0.3s;
-      }
-      
-  
-      #gerar-relatorio:hover {
-        background-color: #0077aa;
-      }
-    
+
+/* Sugestão de texto */
+#sugestao {
+    background-color: #ffdd78;
+    color: #2f5f98;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
+}
