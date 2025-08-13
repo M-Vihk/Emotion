@@ -1,8 +1,13 @@
 import { supabase } from "./supabaseClient.js";
 
 export class SupabaseService {
-  
-  static async salvarNoBanco(nome: string, email: string, senha: string, dataNasc: string, genero: string): Promise<void> {
+  static async salvarNoBanco(
+    nome: string,
+    email: string,
+    senha: string,
+    dataNasc: string,
+    genero: string
+  ): Promise<void> {
     try {
       const { data, error } = await supabase.auth.signUp({
         email: email,
@@ -62,7 +67,13 @@ export class SupabaseService {
     }
   }
 
-  static async salvarEmocoes(alegria: number, tristeza: number, ansiedade: number, raiva: number, medo: number): Promise<void> {
+  static async salvarEmocoes(
+    alegria: number,
+    tristeza: number,
+    ansiedade: number,
+    raiva: number,
+    medo: number
+  ): Promise<void> {
     try {
       const {
         data: { user },
@@ -148,6 +159,15 @@ export class SupabaseService {
     };
   }
 
+  static async getUsuarioAtual() {
+    const {
+      data: { user },
+      error,
+    } = await supabase.auth.getUser();
+    if (error || !user) throw new Error("Usuário não autenticado.");
+    return user;
+  }
+
   static async sair(): Promise<void> {
     try {
       const { error } = await supabase.auth.signOut();
@@ -160,7 +180,11 @@ export class SupabaseService {
     }
   }
 
-  static async salvarDiario(titulo: string, data: string, pensamentos: string): Promise<void> {
+  static async salvarDiario(
+    titulo: string,
+    data: string,
+    pensamentos: string
+  ): Promise<void> {
     try {
       const {
         data: { user },
@@ -192,7 +216,10 @@ export class SupabaseService {
 
   static async listarDiarios(): Promise<any[]> {
     try {
-      const { data: { user }, error: userError, } = await supabase.auth.getUser();
+      const {
+        data: { user },
+        error: userError,
+      } = await supabase.auth.getUser();
 
       if (userError || !user) {
         throw new Error("Usuário não autenticado.");
@@ -209,10 +236,40 @@ export class SupabaseService {
       }
 
       return data || [];
-
     } catch (err: any) {
       throw new Error(err.message || "Erro inesperado ao listar o diário.");
     }
   }
 
+  static async salvarRelatorio(userId: string, medias: any) {
+    const { error } = await supabase.from("relatorios").insert([
+      {
+        id_usuario: userId,
+        data_criacao: new Date().toISOString(),
+        media_alegria: medias.alegria,
+        media_tristeza: medias.tristeza,
+        media_medo: medias.medo,
+        media_ansiedade: medias.ansiedade,
+        media_raiva: medias.raiva,
+      },
+    ]);
+
+    if (error) throw new Error("Erro ao salvar relatório: " + error.message);
+  }
+
+  static async getUltimosRegistrosEmocionais(
+    userId: string,
+    limite: number = 7
+  ) {
+    const { data, error } = await supabase
+      .from("emocoes")
+      .select("alegria, tristeza, medo, ansiedade, raiva")
+      .eq("id_usuario", userId)
+      .order("data_registro", { ascending: false })
+      .limit(limite);
+
+    if (error)
+      throw new Error("Erro ao buscar registros emocionais: " + error.message);
+    return data || [];
+  }
 }
