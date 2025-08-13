@@ -7,10 +7,10 @@
 
 \connect postgres
 
-DROP DATABASE IF EXISTS EMOTION;
-CREATE DATABASE EMOTION; 
+DROP DATABASE IF EXISTS emotion;
+CREATE DATABASE emotion; 
 
-\c EMOTION; 
+\c emotion; 
 
 -- Tabela de usuários que armazenará dados básicos e credenciais
 CREATE TABLE usuarios (

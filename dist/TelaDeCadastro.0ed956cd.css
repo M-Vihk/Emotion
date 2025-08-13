@@ -1,0 +1,180 @@
+header {
+  background-color: #9cccd5;
+  border-bottom: 1px solid #ccc;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  font-family: Impact, Haettenschweiler, Arial Narrow Bold, sans-serif;
+  font-size: 200%;
+  display: flex;
+}
+
+.logo img {
+  height: 100px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.logo {
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  display: flex;
+}
+
+a {
+  cursor: pointer;
+  color: #3178c6;
+  z-index: 2;
+  padding: .5rem 1rem;
+  font-size: 100%;
+  text-decoration: none;
+  transition: all .3s;
+  position: relative;
+}
+
+a:hover {
+  color: #3178c6;
+  background-color: #ffffffb8;
+  border-radius: 40px;
+  box-shadow: 0 0 20px #fff;
+}
+
+html, body {
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  font-family: Segoe UI, sans-serif;
+  display: flex;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  color: #3178c6;
+  text-align: center;
+  background-color: #9cccd5;
+  margin-top: auto;
+  padding: 20px;
+  font-size: .9rem;
+}
+
+@media (width <= 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;
+    font-size: 160%;
+  }
+
+  .logo {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    display: flex;
+  }
+
+  .logo img {
+    height: 80px;
+  }
+}
+
+h1 {
+  text-align: center;
+  color: #2f5f98;
+  margin-top: 20px;
+  font-size: 50px;
+}
+
+.botao-cadastrar:hover {
+  background-color: #1c5571;
+}
+
+.botoes {
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 30px;
+  display: flex;
+}
+
+.botao-entrar {
+  color: #ffdd78;
+  background-color: #2d8bba;
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 250px;
+  height: 40px;
+  margin-top: 5px;
+  margin-bottom: 50px;
+  padding: 10px 15px;
+  font-family: Arial, sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color .3s;
+  display: inline-flex;
+}
+
+.container {
+  color: #2f5f98;
+  background-color: #ffeefe;
+  border-radius: 20px;
+  flex-direction: column;
+  gap: 15px;
+  width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  display: flex;
+  box-shadow: 0 0 10px #0003;
+}
+
+.container input[type="email"], .container input[type="password"], .container input[type="text"], .container input[type="date"], .container select {
+  color: #3178c6;
+  background-color: #e2ccff;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  width: 90%;
+  margin-top: 10px;
+  margin-bottom: 1px;
+  padding: 12px 20px;
+  font-size: 30px;
+  transition: box-shadow .3s;
+  box-shadow: 0 0 5px #0003;
+}
+
+.container input[type="email"]:focus, .container input[type="password"]:focus, .container input[type="text"]:focus {
+  box-shadow: 0 0 8px #79b8f9;
+}
+
+button.botao-entrar {
+  all: unset;
+  color: #ffdd78;
+  cursor: pointer;
+  background-color: #2d8bba;
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 250px;
+  height: 40px;
+  padding: 10px 15px;
+  font-family: Arial, sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  transition: background-color .3s;
+  display: inline-flex;
+}
+
+button.botao-entrar:hover {
+  background-color: #1c5571;
+}
+/*# sourceMappingURL=TelaDeCadastro.0ed956cd.css.map */

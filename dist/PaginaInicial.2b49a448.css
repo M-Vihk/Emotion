@@ -1,0 +1,257 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  color: #2f5f98;
+  background-color: #ffffffb8;
+  flex-direction: column;
+  height: 100%;
+  font-family: Segoe UI, sans-serif;
+  display: flex;
+}
+
+header {
+  background-color: #9cccd5;
+  border-bottom: 1px solid #ccc;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  font-family: Impact, Haettenschweiler, Arial Narrow Bold, sans-serif;
+  font-size: 200%;
+  display: flex;
+}
+
+.logo img {
+  height: 100px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  text-align: center;
+  background-color: #9cccd5;
+  justify-content: right;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  height: 100px;
+  font-family: Franklin Gothic Medium, Arial Narrow, Arial, sans-serif;
+  display: flex;
+}
+
+.logo {
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  display: flex;
+}
+
+nav a {
+  cursor: pointer;
+  color: #3178c6;
+  z-index: 2;
+  padding: .5rem 1rem;
+  font-size: 100%;
+  text-decoration: none;
+  transition: all .3s;
+  position: relative;
+}
+
+nav a:hover {
+  color: #3178c6;
+  background-color: #ffffffb8;
+  border-radius: 40px;
+  box-shadow: 0 0 20px #fff;
+}
+
+.container1 {
+  flex-direction: row;
+  flex: 1;
+  justify-content: center;
+  gap: 40px;
+  padding: 3rem;
+  display: flex;
+}
+
+p {
+  text-align: justify;
+  padding-top: 20px;
+}
+
+aside {
+  background-color: #ffeefe;
+  border-radius: 20px;
+  flex-direction: column;
+  flex: 0 0 450px;
+  align-items: center;
+  max-width: 450px;
+  padding: 2rem;
+  display: flex;
+  box-shadow: 0 0 10px #00000080;
+}
+
+.perfil-img {
+  object-fit: cover;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 1rem;
+}
+
+.conteudo {
+  background-color: #ffeefe;
+  border-radius: 20px;
+  flex: 2;
+  padding: 2rem;
+  box-shadow: 0 0 10px #00000080;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #2f5f98;
+  margin-top: 20px;
+  font-size: 50px;
+}
+
+h3 {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+button[type="submit"] {
+  color: #ffdd78;
+  cursor: pointer;
+  background-color: #09d;
+  border: none;
+  border-radius: 25px;
+  align-self: center;
+  margin: 2rem;
+  padding: .8rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: background .3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #07a;
+}
+
+footer {
+  color: #3178c6;
+  text-align: center;
+  background-color: #9cccd5;
+  margin-top: auto;
+  padding: 20px;
+  font-size: .9rem;
+}
+
+footer p {
+  text-align: center;
+  margin: 0;
+}
+
+@media (width <= 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;
+    font-size: 160%;
+  }
+
+  .logo {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    display: flex;
+  }
+
+  .logo img {
+    height: 80px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  nav a {
+    padding: .4rem .8rem;
+    font-size: 90%;
+  }
+
+  .container1 {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 1.5rem;
+  }
+
+  aside, .conteudo {
+    flex: none;
+    max-width: 100%;
+  }
+}
+
+.boneca {
+  width: auto;
+  height: 500px;
+}
+
+.container {
+  color: #2f5f98;
+  background-color: #ffeefe;
+  border-radius: 20px;
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 1px;
+  box-shadow: 0 0 10px #0003;
+}
+
+.emocao {
+  margin-top: 15px;
+}
+
+.notas {
+  font-size: 25px;
+}
+
+.notas label {
+  cursor: pointer;
+  margin: 5px;
+  font-size: 24px;
+  position: relative;
+}
+
+.tooltip {
+  visibility: hidden;
+  color: #fff;
+  text-align: center;
+  z-index: 1;
+  white-space: nowrap;
+  opacity: 0;
+  background-color: #333;
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-size: 14px;
+  transition: opacity .3s;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.notas label:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+/*# sourceMappingURL=PaginaInicial.2b49a448.css.map */

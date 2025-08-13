@@ -1,0 +1,49 @@
+<!DOCTYPE html><html lang="pt-br"><head><script type="module" src="/TelaDeCadastro.9917a0da.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diário Virtual</title>
+  <link rel="stylesheet" href="/DiarioDigital.acb33430.css">
+  <link rel="icon" type="png" href="/SolIcone.aa32d6db.png">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="/sol.aae801a9.png" alt="Logo do site">
+    </div>
+    <nav>
+      <a href="/PaginaInicial.html">Página Inicial</a>
+      <a href="/relatorio.html">Estatísticas</a>
+      <a href="/DiarioDigital.html">Diário</a>
+      <a href="/TelaUsuario.html">Usuário</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="novo-diario-container"></div>
+    
+    <div class="diario" id="diario-container">
+      <h1>Diário Virtual</h1>
+      <input type="text" id="titulo-diario" placeholder="Título do Diário" style="border: 1px solid #ccc; border-radius: 8px; width: 100%; margin-bottom: 10px; padding: 10px; font-size: 1.2rem">
+
+      <label for="entry-date">Data:</label>
+      <input type="date" id="entry-date" name="entry-date" required="">
+
+      <label for="entry-content">Pensamentos:</label>
+      <textarea id="diario" placeholder="Como foi seu dia?"></textarea>
+
+      <button id="salvar">Salvar</button>
+      <button id="excluir">Excluir</button>
+
+      <h2>Histórico de Diários</h2>
+      <div id="historico-diarios" class="historico-container"></div>
+      <button id="excluir-todos" style="margin-top: 10px">Excluir Todos</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>© Copyright 2025 Black Sheep</p>
+  </footer>
+  <script type="module" src="/DiarioDigital.0895e378.js"></script>
+
+
+</body></html>
