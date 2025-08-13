@@ -160,7 +160,7 @@
       });
     }
   }
-})({"5OAxT":[function(require,module,exports,__globalThis) {
+})({"21BvH":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -752,7 +752,7 @@ async function excluirDiarioAtual() {
 async function excluirTodosDiarios() {
     if (!confirm("Tem certeza que deseja excluir TODOS os di\xe1rios? Esta a\xe7\xe3o n\xe3o pode ser desfeita.")) return;
     try {
-        const user = await (0, _supabaseService.SupabaseService).getUser();
+        const user = await (0, _supabaseService.SupabaseService).getUsuarioAtual();
         if (!user) {
             alert("Usu\xe1rio n\xe3o autenticado.");
             return;
@@ -775,6 +775,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
     mostrarHistorico();
 });
 
-},{"../../service/SupabaseService":"gr4uh"}]},["5OAxT","l9GBl"], "l9GBl", "parcelRequiree55a", {})
+},{"../../service/SupabaseService":"gr4uh"}]},["21BvH","l9GBl"], "l9GBl", "parcelRequiree55a", {})
 
 //# sourceMappingURL=DiarioDigital.0895e378.js.map

@@ -160,7 +160,7 @@
       });
     }
   }
-})({"lczCk":[function(require,module,exports,__globalThis) {
+})({"exx6F":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -816,11 +816,6 @@ class SupabaseService {
         }).limit(limite);
         if (error) throw new Error("Erro ao buscar registros emocionais: " + error.message);
         return data || [];
-    }
-    static async getUser() {
-        const { data: { user }, error } = await (0, _supabaseClientJs.supabase).auth.getUser();
-        if (error || !user) return null;
-        return user;
     }
     static async excluirDiario(id) {
         const { error } = await (0, _supabaseClientJs.supabase).from('diario').delete().eq('id', id);
@@ -10792,6 +10787,6 @@ var _goTrueClientDefault = parcelHelpers.interopDefault(_goTrueClient);
 const AuthClient = (0, _goTrueClientDefault.default);
 exports.default = AuthClient;
 
-},{"./GoTrueClient":"gnygt","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["lczCk"], null, "parcelRequiree55a", {})
+},{"./GoTrueClient":"gnygt","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["exx6F"], null, "parcelRequiree55a", {})
 
 //# sourceMappingURL=TelaDeCadastro.9917a0da.js.map

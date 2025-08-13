@@ -160,7 +160,7 @@
       });
     }
   }
-})({"96LIG":[function(require,module,exports,__globalThis) {
+})({"bJxck":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -697,6 +697,6 @@ async function sair() {
 btnSair.onclick = ()=>sair();
 carregarDadosDoUsuario();
 
-},{"../../service/SupabaseService":"gr4uh"}]},["96LIG","gmJSf"], "gmJSf", "parcelRequiree55a", {})
+},{"../../service/SupabaseService":"gr4uh"}]},["bJxck","gmJSf"], "gmJSf", "parcelRequiree55a", {})
 
 //# sourceMappingURL=TelaUsuario.33d0c267.js.map

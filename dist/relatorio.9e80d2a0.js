@@ -160,7 +160,7 @@
       });
     }
   }
-})({"5IuAT":[function(require,module,exports,__globalThis) {
+})({"7QdQs":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -710,6 +710,6 @@ async function gerarRelatorioEmocional() {
 const btnGerarRelatorio = document.getElementById("gerar-relatorio");
 btnGerarRelatorio.onclick = gerarRelatorioEmocional;
 
-},{"../../service/SupabaseService":"gr4uh","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["5IuAT","hXkWO"], "hXkWO", "parcelRequiree55a", {})
+},{"../../service/SupabaseService":"gr4uh","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["7QdQs","hXkWO"], "hXkWO", "parcelRequiree55a", {})
 
 //# sourceMappingURL=relatorio.9e80d2a0.js.map

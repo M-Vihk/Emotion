@@ -160,7 +160,7 @@
       });
     }
   }
-})({"Kx6Rv":[function(require,module,exports,__globalThis) {
+})({"8wn98":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -710,6 +710,6 @@ class MensagemView {
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["Kx6Rv","39UA7"], "39UA7", "parcelRequiree55a", {})
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["8wn98","39UA7"], "39UA7", "parcelRequiree55a", {})
 
 //# sourceMappingURL=TelaDeEntrar.e9b91ed3.js.map

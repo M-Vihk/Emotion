@@ -57,80 +57,102 @@ CREATE TABLE relatos (
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
 );
 
--- Inserção de usuários exemplo
+CREATE TABLE sugestoes (
+    id_sugestao SERIAL PRIMARY KEY,
+    sugestoes_alegria TEXT,
+    sugestoes_tristeza TEXT,
+    sugestoes_raiva TEXT,
+    sugestoes_medo TEXT,
+    sugestoes_ansiedade TEXT
+);
+
+-- Inserindo dados na tabela usuarios
 INSERT INTO usuarios (nome, email, senha_hash, data_nascimento, genero) VALUES
-('Ana Silva', 'ana.silva@email.com', 'hash1', '1990-05-10', 'Feminino'),
-('Carlos Souza', 'carlos.souza@email.com', 'hash2', '1985-11-20', 'Masculino'),
-('Beatriz Lima', 'beatriz.lima@email.com', 'hash3', '1992-03-15', 'Feminino'),
-('Daniel Oliveira', 'daniel.oliveira@email.com', 'hash4', '1988-08-22', 'Masculino'),
-('Fernanda Costa', 'fernanda.costa@email.com', 'hash5', '1995-12-05', 'Feminino');
+('Ana Silva', 'ana@email.com', 'hash123', '1990-05-12', 'Feminino'),
+('Carlos Souza', 'carlos@email.com', 'hash456', '1985-08-23', 'Masculino'),
+('Maria Oliveira', 'maria@email.com', 'hash789', '1993-11-30', 'Feminino'),
+('João Santos', 'joao@email.com', 'hash101', '2000-01-15', 'Masculino'),
+('Paula Mendes', 'paula@email.com', 'hash202', '1988-07-09', 'Feminino'),
+('Ricardo Lima', 'ricardo@email.com', 'hash303', '1995-09-21', 'Masculino'),
+('Fernanda Costa', 'fernanda@email.com', 'hash404', '1992-04-18', 'Feminino');
 
--- Inserção de registros diários de emoções
+-- Inserindo dados na tabela emocoes
 INSERT INTO emocoes (id_usuario, data_registro, alegria, tristeza, raiva, medo, ansiedade) VALUES
-(1, '2025-08-01', 4, 1, 2, 1, 3),
-(2, '2025-08-01', 3, 2, 1, 2, 4),
-(3, '2025-08-02', 5, 0, 0, 1, 1),
-(4, '2025-08-03', 2, 3, 4, 2, 2),
-(5, '2025-08-04', 4, 1, 1, 1, 3);
+(1, '2025-08-01', 4, 1, 0, 1, 2),
+(2, '2025-08-01', 3, 2, 1, 0, 1),
+(3, '2025-08-01', 2, 4, 3, 2, 5),
+(4, '2025-08-02', 5, 0, 0, 0, 1),
+(5, '2025-08-02', 1, 5, 4, 3, 5),
+(6, '2025-08-02', 3, 2, 2, 2, 2),
+(7, '2025-08-02', 4, 1, 0, 1, 1),
+(1, '2025-08-03', 5, 0, 0, 0, 0);
 
--- Inserção de pensamentos diários
+-- Inserindo dados na tabela diario
 INSERT INTO diario (id_usuario, data, pensamentos) VALUES
-(1, '2025-08-01', 'Hoje foi um dia excelente, me senti muito feliz.'),
-(2, '2025-08-01', 'Um pouco cansado, mas consegui resolver problemas no trabalho.'),
-(3, '2025-08-02', 'Momento de reflexão e crescimento pessoal.'),
-(4, '2025-08-03', 'Tive alguns conflitos, mas estou tentando melhorar.'),
-(5, '2025-08-04', 'Dia tranquilo e cheio de esperança.');
+(1, '2025-08-01', 'Dia tranquilo e produtivo.'),
+(2, '2025-08-01', 'Me senti cansado, mas feliz com o progresso no trabalho.'),
+(3, '2025-08-01', 'Dia difícil, muitas preocupações.'),
+(4, '2025-08-02', 'Passeio agradável com amigos.'),
+(5, '2025-08-02', 'Discussão em casa me deixou chateada.'),
+(6, '2025-08-02', 'Dia comum, sem grandes emoções.'),
+(7, '2025-08-02', 'Aprendi algo novo e foi empolgante.'),
+(1, '2025-08-03', 'Excelente dia, tudo deu certo.');
 
--- Inserção de relatos com médias semanais/mensais das emoções
+-- Inserindo dados na tabela relatos
 INSERT INTO relatos (id_usuario, data_criacao, media_alegria, media_tristeza, media_raiva, media_medo, media_ansiedade) VALUES
-(1, '2025-08-07', 3.8, 1.0, 1.5, 1.0, 2.0),
-(2, '2025-08-07', 3.0, 2.1, 1.2, 1.5, 3.5),
-(3, '2025-08-07', 4.9, 0.1, 0.0, 1.2, 1.1),
-(4, '2025-08-07', 2.1, 2.5, 3.8, 2.0, 2.0),
-(5, '2025-08-07', 3.9, 1.2, 1.0, 1.0, 2.8);
+(1, '2025-08-03', 4.5, 0.5, 0.0, 0.5, 1.0),
+(2, '2025-08-03', 3.0, 2.0, 1.0, 0.0, 1.0),
+(3, '2025-08-03', 2.0, 4.0, 3.0, 2.0, 5.0),
+(4, '2025-08-03', 5.0, 0.0, 0.0, 0.0, 1.0),
+(5, '2025-08-03', 1.0, 5.0, 4.0, 3.0, 5.0);
 
--- Consulta: retorna todos os usuários cadastrados
+-- Inserindo dados na tabela sugestoes
+INSERT INTO sugestoes (sugestoes_alegria, sugestoes_tristeza, sugestoes_raiva, sugestoes_medo, sugestoes_ansiedade) VALUES
+('Praticar gratidão diariamente.', 'Conversar com um amigo de confiança.', 'Respirar fundo e contar até 10.', 'Enfrentar o medo gradualmente.', 'Praticar meditação.'),
+('Ouvir música favorita.', 'Escrever sobre seus sentimentos.', 'Sair para caminhar.', 'Buscar informações confiáveis.', 'Fazer exercícios físicos.'),
+('Sair com amigos.', 'Assistir um filme leve.', 'Tirar um tempo sozinho.', 'Falar sobre o medo.', 'Evitar cafeína.'),
+('Fazer voluntariado.', 'Praticar um hobby.', 'Tentar compreender a causa.', 'Praticar respiração profunda.', 'Estabelecer rotina de sono.'),
+('Celebrar pequenas conquistas.', 'Buscar apoio profissional.', 'Praticar esportes.', 'Lembrar de experiências positivas.', 'Reduzir tempo nas redes sociais.');
+
+-- 1. Listar todos os usuários
 SELECT * FROM usuarios;
 
--- Consulta: retorna todas as emoções do usuário com id 1, ordenadas pela data mais recente
-SELECT * FROM emocoes WHERE id_usuario = 1 ORDER BY data_registro DESC;
+-- 2. Mostrar nome e email de todos os usuários ordenados por nome
+SELECT nome, email FROM usuarios ORDER BY nome;
 
--- Consulta: retorna todos os diários do usuário com id 2, ordenados da data mais recente
-SELECT * FROM diario WHERE id_usuario = 2 ORDER BY data DESC;
+-- 3. Mostrar emoções registradas no dia 2025-08-02
+SELECT * FROM emocoes WHERE data_registro = '2025-08-02';
 
--- Consulta: conta o total de entradas no diário por usuário
-SELECT id_usuario, COUNT(*) AS total_diarios FROM diario GROUP BY id_usuario;
-
--- Consulta: retorna o relato mais recente por usuário
-SELECT DISTINCT ON (id_usuario) * FROM relatos ORDER BY id_usuario, data_criacao DESC;
-
--- Consulta: calcula a média geral da emoção 'alegria' em todos os registros
+-- 4. Mostrar a média de alegria de todos os registros
 SELECT AVG(alegria) AS media_alegria FROM emocoes;
 
--- Consulta: junta diário e emoções para mostrar dados completos do dia 2025-08-01 do usuário 1
-SELECT d.data, d.pensamentos, e.alegria, e.tristeza, e.raiva, e.medo, e.ansiedade
-FROM diario d
-JOIN emocoes e ON d.id_usuario = e.id_usuario AND d.data = e.data_registro
-WHERE d.id_usuario = 1 AND d.data = '2025-08-01';
+-- 5. Buscar pensamentos do usuário "Ana Silva"
+SELECT pensamentos FROM diario
+JOIN usuarios ON diario.id_usuario = usuarios.id_usuario
+WHERE usuarios.nome = 'Ana Silva';
 
--- Consulta: mostra usuários com média de ansiedade acima de 3
-SELECT u.nome, r.media_ansiedade FROM usuarios u
-JOIN relatos r ON u.id_usuario = r.id_usuario
-WHERE r.media_ansiedade > 3;
+-- 6. Mostrar os relatos com maior média de ansiedade
+SELECT * FROM relatos ORDER BY media_ansiedade DESC;
 
--- Consulta: usuário com maior número de diários registrados
-SELECT id_usuario, COUNT(*) AS total_diarios FROM diario
-GROUP BY id_usuario
-ORDER BY total_diarios DESC
-LIMIT 1;
+-- 7. Listar sugestões para lidar com tristeza
+SELECT sugestoes_tristeza FROM sugestoes;
 
--- Consulta: soma das emoções por usuário no mês de agosto de 2025
-SELECT id_usuario,
-       SUM(alegria) AS soma_alegria,
-       SUM(tristeza) AS soma_tristeza,
-       SUM(raiva) AS soma_raiva,
-       SUM(medo) AS soma_medo,
-       SUM(ansiedade) AS soma_ansiedade
-FROM emocoes
-WHERE data_registro BETWEEN '2025-08-01' AND '2025-08-31'
-GROUP BY id_usuario;
+-- 8. Contar quantos usuários são do gênero feminino
+SELECT COUNT(*) AS qtd_feminino FROM usuarios WHERE genero = 'Feminino';
+
+-- 9. Mostrar registros de emoções do usuário com email "carlos@email.com"
+SELECT e.* FROM emocoes e
+JOIN usuarios u ON e.id_usuario = u.id_usuario
+WHERE u.email = 'carlos@email.com';
+
+-- 10. Mostrar média de emoções agrupadas por usuário
+SELECT u.nome,
+       AVG(alegria) AS media_alegria,
+       AVG(tristeza) AS media_tristeza,
+       AVG(raiva) AS media_raiva,
+       AVG(medo) AS media_medo,
+       AVG(ansiedade) AS media_ansiedade
+FROM emocoes e
+JOIN usuarios u ON e.id_usuario = u.id_usuario
+GROUP BY u.nome
+ORDER BY media_alegria DESC;
