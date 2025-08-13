@@ -84,10 +84,7 @@ export class SupabaseService {
         throw new Error("Usuário não autenticado.");
       }
 
-      const registroHoje = await this.verificarRegistroHoje(user.id);
-      if (registroHoje) {
-        throw new Error("Você já registrou suas emoções hoje.");
-      }
+
 
       const { error } = await supabase.from("emocoes").insert([
         {
@@ -160,7 +157,10 @@ export class SupabaseService {
   }
 
   static async getUsuarioAtual() {
-    const {data: { user }, error} = await supabase.auth.getUser();
+    const {
+      data: { user },
+      error,
+    } = await supabase.auth.getUser();
     if (error || !user) throw new Error("Usuário não autenticado.");
     return user;
   }
@@ -271,13 +271,36 @@ export class SupabaseService {
   }
 
   static async excluirDiario(id: string) {
-  const { error } = await supabase.from('diario').delete().eq('id', id);
-  if (error) throw error;
+    const { error } = await supabase.from("diario").delete().eq("id", id);
+    if (error) throw error;
   }
 
   static async excluirTodosDiarios(id_usuario: string) {
-  const { error } = await supabase.from('diario').delete().eq('id_usuario', id_usuario);
-  if (error) throw error;
+    const { error } = await supabase
+      .from("diario")
+      .delete()
+      .eq("id_usuario", id_usuario);
+    if (error) throw error;
   }
 
+  static async getSugestaoPorEmocao(emocao: string) {
+    const { data, error }: any = await supabase
+      .from("sugestoes")
+      .select(
+        "id, sugestao_alegria, sugestao_tristeza, sugestao_medo, sugestao_ansiedade, sugestao_raiva"
+      );
+
+    if (error) {
+      throw new Error("Erro ao buscar sugestão: " + error.message);
+    }
+
+    var lista: string[] = [];
+    for (var i = 0; i < data.length; i++) {
+      lista.push(data[i]["sugestao_" + emocao]);
+    }
+
+    return lista;
+  }
+
+  
 }

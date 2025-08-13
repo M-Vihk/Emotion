@@ -1,6 +1,6 @@
 import { SupabaseService } from "../../service/SupabaseService";
 
-export async function gerarRelatorioEmocional() {
+export async function gerarRelatorioEmocional() : Promise<any> {
   try {
     const user = await SupabaseService.getUsuarioAutenticado();
     if (!user) {
@@ -42,5 +42,31 @@ export async function gerarRelatorioEmocional() {
   }
 }
 
+async function gerarRelatorioComSugestao() {
+  try {
+    const medias = await gerarRelatorioEmocional();
+
+    let emocaoPrincipal : string = "";
+    let maiorMedia : number = 0;
+
+    for (const emocao in medias) {
+      if (medias[emocao] > maiorMedia) {
+        maiorMedia = medias[emocao];
+        emocaoPrincipal = emocao;
+      }
+    }
+
+    const sugestoes = await SupabaseService.getSugestaoPorEmocao(emocaoPrincipal);
+
+    console.log("Médias:", medias);
+    console.log("Emoção principal:", emocaoPrincipal, "=> Sugestões:", sugestoes);
+
+    return { medias, emocaoPrincipal, sugestoes };
+
+  } catch (err: any) {
+    console.error("Erro ao gerar relatório:", err.message);
+  }
+}
+
 const btnGerarRelatorio : HTMLButtonElement= document.getElementById("gerar-relatorio") as HTMLButtonElement;
-btnGerarRelatorio.onclick = gerarRelatorioEmocional
+btnGerarRelatorio.onclick = gerarRelatorioComSugestao
