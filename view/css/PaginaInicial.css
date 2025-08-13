@@ -128,7 +128,7 @@ h3{
 
 /* BOTÕES */
 button[type="submit"] {
-  margin-top: 2rem;
+  margin: 2rem;
   align-self: center;
   background-color: #0099dd;
   color: #ffdd78;
@@ -258,37 +258,4 @@ footer p {
 .notas label:hover .tooltip {
   visibility: visible;
   opacity: 1;
-}
-/* Conteiner de escreva algo a mais*/
-
-.diario-container {
-  display: flex;
-  height: 100vh; /* ou a altura que você deseja */
-  padding: 1rem;
-  background-color: #f9f5f0;
-  
-}
-
-.diario {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  padding: 20px;
-}
-
-.diario textarea {
-  flex-grow: 1;
-  border: none;
-  resize: none;
-  padding: 1rem;
-  line-height: 1.8;
-  font-size: 1.1rem;
-  color: #383838;
-  font-family: 'Georgia', serif;
-  border-left: 2px solid #2d8bba;
-  border-right: 2px solid #2d8bba;
-  border-top: 2px solid #2d8bba;
-  border-bottom: 2px solid #2d8bba;
-  outline: none;
-  border-radius: 20px;
 }
