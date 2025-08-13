@@ -160,7 +160,7 @@
       });
     }
   }
-})({"8mBFa":[function(require,module,exports,__globalThis) {
+})({"kAwlh":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
@@ -722,6 +722,6 @@ class MensagemView {
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["8mBFa","bMjY6"], "bMjY6", "parcelRequiree55a", {})
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["kAwlh","bMjY6"], "bMjY6", "parcelRequiree55a", {})
 
 //# sourceMappingURL=PaginaInicial.6a0d2fac.js.map

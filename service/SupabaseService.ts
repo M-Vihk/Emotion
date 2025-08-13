@@ -160,10 +160,7 @@ export class SupabaseService {
   }
 
   static async getUsuarioAtual() {
-    const {
-      data: { user },
-      error,
-    } = await supabase.auth.getUser();
+    const {data: { user }, error} = await supabase.auth.getUser();
     if (error || !user) throw new Error("Usuário não autenticado.");
     return user;
   }
@@ -271,12 +268,6 @@ export class SupabaseService {
     if (error)
       throw new Error("Erro ao buscar registros emocionais: " + error.message);
     return data || [];
-  }
-
-  static async getUser() {
-  const { data: { user }, error } = await supabase.auth.getUser();
-  if (error || !user) return null;
-  return user;
   }
 
   static async excluirDiario(id: string) {

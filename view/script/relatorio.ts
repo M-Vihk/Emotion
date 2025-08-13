@@ -22,7 +22,7 @@ export async function gerarRelatorioEmocional() {
       soma.raiva += r.raiva || 0;
     });
 
-    const total = registros.length;
+    const total : number = registros.length;
     const medias = {
       alegria: soma.alegria / total,
       tristeza: soma.tristeza / total,

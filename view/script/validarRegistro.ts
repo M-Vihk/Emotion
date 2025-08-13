@@ -21,7 +21,7 @@ const mensagem : MensagemView = new MensagemView(divMensagem);
 let btnEnviar : HTMLButtonElement = document.getElementById("btn-enviar") as HTMLButtonElement;
 
 btnEnviar.onclick = async (e: MouseEvent) => {
-  e.preventDefault(); // evita submit automático do formulário
+  e.preventDefault();
 
   console.log("Botão Enviar clicado");
 

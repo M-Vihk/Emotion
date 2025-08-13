@@ -114,7 +114,7 @@ async function excluirTodosDiarios() {
   }
 
   try {
-    const user = await SupabaseService.getUser();
+    const user = await SupabaseService.getUsuarioAtual();
     if (!user) {
       alert('Usuário não autenticado.');
       return;
