@@ -272,4 +272,21 @@ export class SupabaseService {
       throw new Error("Erro ao buscar registros emocionais: " + error.message);
     return data || [];
   }
+
+  static async getUser() {
+  const { data: { user }, error } = await supabase.auth.getUser();
+  if (error || !user) return null;
+  return user;
+  }
+
+  static async excluirDiario(id: string) {
+  const { error } = await supabase.from('diario').delete().eq('id', id);
+  if (error) throw error;
+  }
+
+  static async excluirTodosDiarios(id_usuario: string) {
+  const { error } = await supabase.from('diario').delete().eq('id_usuario', id_usuario);
+  if (error) throw error;
+  }
+
 }

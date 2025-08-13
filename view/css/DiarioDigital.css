@@ -183,6 +183,7 @@ footer {
   border-radius: 8px;
   width: 100%;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .entrada-item {

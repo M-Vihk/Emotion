@@ -817,6 +817,19 @@ class SupabaseService {
         if (error) throw new Error("Erro ao buscar registros emocionais: " + error.message);
         return data || [];
     }
+    static async getUser() {
+        const { data: { user }, error } = await (0, _supabaseClientJs.supabase).auth.getUser();
+        if (error || !user) return null;
+        return user;
+    }
+    static async excluirDiario(id) {
+        const { error } = await (0, _supabaseClientJs.supabase).from('diario').delete().eq('id', id);
+        if (error) throw error;
+    }
+    static async excluirTodosDiarios(id_usuario) {
+        const { error } = await (0, _supabaseClientJs.supabase).from('diario').delete().eq('id_usuario', id_usuario);
+        if (error) throw error;
+    }
 }
 
 },{"./supabaseClient.js":"kXu5L","@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"kXu5L":[function(require,module,exports,__globalThis) {

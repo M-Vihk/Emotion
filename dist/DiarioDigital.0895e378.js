@@ -668,6 +668,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 
 },{}],"l9GBl":[function(require,module,exports,__globalThis) {
 var _supabaseService = require("../../service/SupabaseService");
+let diarioAtualId = null;
 async function mostrarHistorico() {
     const historicoContainer = document.getElementById('historico-diarios');
     if (!historicoContainer) return;
@@ -685,12 +686,33 @@ async function mostrarHistorico() {
             entradaDiv.innerHTML = `
         <span><strong>${diario.titulo}</strong> - ${dataFormatada} <br>${diario.pensamentos}</span>
       `;
+            entradaDiv.addEventListener('click', ()=>{
+                carregarDiarioNoFormulario(diario);
+            });
             historicoContainer.appendChild(entradaDiv);
         });
     } catch (error) {
         console.error("Erro ao carregar hist\xf3rico:", error);
         historicoContainer.innerHTML = "<p>Erro ao carregar hist\xf3rico de di\xe1rios.</p>";
     }
+}
+function carregarDiarioNoFormulario(diario) {
+    const tituloInput = document.getElementById("titulo-diario");
+    const dataInput = document.getElementById("entry-date");
+    const pensamentosInput = document.getElementById("diario");
+    tituloInput.value = diario.titulo;
+    dataInput.value = diario.data;
+    pensamentosInput.value = diario.pensamentos;
+    diarioAtualId = diario.id;
+}
+function limparFormulario() {
+    const tituloInput = document.getElementById("titulo-diario");
+    const dataInput = document.getElementById("entry-date");
+    const pensamentosInput = document.getElementById("diario");
+    tituloInput.value = "";
+    dataInput.value = "";
+    pensamentosInput.value = "";
+    diarioAtualId = null;
 }
 async function salvarDiario() {
     const tituloInput = document.getElementById("titulo-diario");
@@ -706,18 +728,49 @@ async function salvarDiario() {
     try {
         await (0, _supabaseService.SupabaseService).salvarDiario(titulo, data, pensamentos);
         alert("Di\xe1rio salvo com sucesso!");
-        tituloInput.value = "";
-        dataInput.value = "";
-        pensamentosInput.value = "";
-        // Atualiza o histórico logo após salvar
+        limparFormulario();
         await mostrarHistorico();
     } catch (error) {
         alert("Erro ao salvar di\xe1rio: " + error.message);
     }
 }
+async function excluirDiarioAtual() {
+    if (!diarioAtualId) {
+        alert("Nenhum di\xe1rio selecionado para exclus\xe3o.");
+        return;
+    }
+    if (!confirm("Tem certeza que deseja excluir o di\xe1rio atual?")) return;
+    try {
+        await (0, _supabaseService.SupabaseService).excluirDiario(diarioAtualId);
+        alert("Di\xe1rio exclu\xeddo com sucesso!");
+        limparFormulario();
+        await mostrarHistorico();
+    } catch (error) {
+        alert("Erro ao excluir di\xe1rio: " + error.message);
+    }
+}
+async function excluirTodosDiarios() {
+    if (!confirm("Tem certeza que deseja excluir TODOS os di\xe1rios? Esta a\xe7\xe3o n\xe3o pode ser desfeita.")) return;
+    try {
+        const user = await (0, _supabaseService.SupabaseService).getUser();
+        if (!user) {
+            alert("Usu\xe1rio n\xe3o autenticado.");
+            return;
+        }
+        await (0, _supabaseService.SupabaseService).excluirTodosDiarios(user.id);
+        alert("Todos os di\xe1rios foram exclu\xeddos!");
+        limparFormulario();
+        await mostrarHistorico();
+    } catch (error) {
+        alert("Erro ao excluir todos os di\xe1rios: " + error.message);
+    }
+}
 const btnSalvar = document.getElementById("salvar");
 btnSalvar.onclick = salvarDiario;
-// Carrega o histórico ao abrir a página
+const btnExcluir = document.getElementById("excluir");
+btnExcluir.onclick = excluirDiarioAtual;
+const btnExcluirTodos = document.getElementById("excluir-todos");
+btnExcluirTodos.onclick = excluirTodosDiarios;
 document.addEventListener('DOMContentLoaded', ()=>{
     mostrarHistorico();
 });

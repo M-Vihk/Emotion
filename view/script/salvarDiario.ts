@@ -1,5 +1,7 @@
 import { SupabaseService } from "../../service/SupabaseService";
 
+let diarioAtualId: string | null = null;
+
 async function mostrarHistorico() {
   const historicoContainer = document.getElementById('historico-diarios');
   if (!historicoContainer) return;
@@ -24,6 +26,10 @@ async function mostrarHistorico() {
         <span><strong>${diario.titulo}</strong> - ${dataFormatada} <br>${diario.pensamentos}</span>
       `;
 
+      entradaDiv.addEventListener('click', () => {
+        carregarDiarioNoFormulario(diario);
+      });
+
       historicoContainer.appendChild(entradaDiv);
     });
   } catch (error) {
@@ -32,14 +38,38 @@ async function mostrarHistorico() {
   }
 }
 
-async function salvarDiario() {
-  const tituloInput : HTMLInputElement = document.getElementById("titulo-diario") as HTMLInputElement;
-  const dataInput : HTMLInputElement = document.getElementById("entry-date") as HTMLInputElement;
-  const pensamentosInput : HTMLTextAreaElement = document.getElementById("diario") as HTMLTextAreaElement;
+function carregarDiarioNoFormulario(diario: any) {
+  const tituloInput = document.getElementById("titulo-diario") as HTMLInputElement;
+  const dataInput = document.getElementById("entry-date") as HTMLInputElement;
+  const pensamentosInput = document.getElementById("diario") as HTMLTextAreaElement;
 
-  const titulo : string = tituloInput.value.trim();
-  const data : string = dataInput.value;
-  const pensamentos : string = pensamentosInput.value.trim();
+  tituloInput.value = diario.titulo;
+  dataInput.value = diario.data;
+  pensamentosInput.value = diario.pensamentos;
+
+  diarioAtualId = diario.id;
+}
+
+function limparFormulario() {
+  const tituloInput = document.getElementById("titulo-diario") as HTMLInputElement;
+  const dataInput = document.getElementById("entry-date") as HTMLInputElement;
+  const pensamentosInput = document.getElementById("diario") as HTMLTextAreaElement;
+
+  tituloInput.value = "";
+  dataInput.value = "";
+  pensamentosInput.value = "";
+
+  diarioAtualId = null;
+}
+
+async function salvarDiario() {
+  const tituloInput = document.getElementById("titulo-diario") as HTMLInputElement;
+  const dataInput = document.getElementById("entry-date") as HTMLInputElement;
+  const pensamentosInput = document.getElementById("diario") as HTMLTextAreaElement;
+
+  const titulo = tituloInput.value.trim();
+  const data = dataInput.value;
+  const pensamentos = pensamentosInput.value.trim();
 
   if (!titulo || !data || !pensamentos) {
     alert("Por favor, preencha todos os campos antes de salvar.");
@@ -50,11 +80,7 @@ async function salvarDiario() {
     await SupabaseService.salvarDiario(titulo, data, pensamentos);
     alert("Diário salvo com sucesso!");
 
-    tituloInput.value = "";
-    dataInput.value = "";
-    pensamentosInput.value = "";
-
-    // Atualiza o histórico logo após salvar
+    limparFormulario();
     await mostrarHistorico();
 
   } catch (error: any) {
@@ -62,10 +88,56 @@ async function salvarDiario() {
   }
 }
 
-const btnSalvar : HTMLButtonElement = document.getElementById("salvar") as HTMLButtonElement;
+async function excluirDiarioAtual() {
+  if (!diarioAtualId) {
+    alert('Nenhum diário selecionado para exclusão.');
+    return;
+  }
+
+  if (!confirm('Tem certeza que deseja excluir o diário atual?')) {
+    return;
+  }
+
+  try {
+    await SupabaseService.excluirDiario(diarioAtualId);
+    alert('Diário excluído com sucesso!');
+    limparFormulario();
+    await mostrarHistorico();
+  } catch (error: any) {
+    alert('Erro ao excluir diário: ' + error.message);
+  }
+}
+
+async function excluirTodosDiarios() {
+  if (!confirm('Tem certeza que deseja excluir TODOS os diários? Esta ação não pode ser desfeita.')) {
+    return;
+  }
+
+  try {
+    const user = await SupabaseService.getUser();
+    if (!user) {
+      alert('Usuário não autenticado.');
+      return;
+    }
+
+    await SupabaseService.excluirTodosDiarios(user.id);
+    alert('Todos os diários foram excluídos!');
+    limparFormulario();
+    await mostrarHistorico();
+  } catch (error: any) {
+    alert('Erro ao excluir todos os diários: ' + error.message);
+  }
+}
+
+const btnSalvar = document.getElementById("salvar") as HTMLButtonElement;
 btnSalvar.onclick = salvarDiario;
 
-// Carrega o histórico ao abrir a página
+const btnExcluir = document.getElementById("excluir") as HTMLButtonElement;
+btnExcluir.onclick = excluirDiarioAtual;
+
+const btnExcluirTodos = document.getElementById("excluir-todos") as HTMLButtonElement;
+btnExcluirTodos.onclick = excluirTodosDiarios;
+
 document.addEventListener('DOMContentLoaded', () => {
   mostrarHistorico();
 });
