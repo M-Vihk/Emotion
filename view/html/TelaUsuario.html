@@ -1,63 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil do Usuário</title>
-    <link rel="stylesheet" href="../css/TelaUsuario.css">
-    <link rel="website icon" type="png" href="../img/SolIcone.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil do Usuário</title>
+  <link rel="stylesheet" href="../css/TelaUsuario.css">
+  <link rel="website icon" type="png" href="../img/SolIcone.png">
 </head>
+
 <body>
-    <header>
-        <div class="logo">
-          <img src="../img/sol.png" alt="Logo do site">
-        </div>
-        <nav>
-          <a href="PaginaInicial.html">Página Inicial</a>
-          <a href="./relatorio.html">Estatísticas</a>
-          <a href="DiarioDigital.html">Diário</a>
-          <a href="TelaUsuario.html">Usuário</a>
-        </nav>
-      </header>
-<main>
-   <main class="container">
-  <aside>
-    <img src="../img/user.png" alt="Foto de perfil de Vitória" class="perfil-img" />
-    <h2>Perfil</h2>
-    <button class="btn-sair" id="btn-sair" onclick="window.location.href='login.html'">Sair da Conta</button>
-  </aside>
+  <header>
+    <div class="logo">
+      <img src="../img/sol.png" alt="Logo do site">
+    </div>
+    <nav>
+      <a href="PaginaInicial.html">Página Inicial</a>
+      <a href="./relatorio.html">Estatísticas</a>
+      <a href="DiarioDigital.html">Diário</a>
+      <a href="TelaUsuario.html">Usuário</a>
+      <a href="Sobre.html">Sobre</a>
+    </nav>
+  </header>
+  <main>
+    <main class="container">
+      <aside>
+        <img src="../img/user.png" alt="Foto de perfil de Vitória" class="perfil-img" />
+        <h2>Perfil</h2>
+        <button class="btn-sair" id="btn-sair" onclick="window.location.href='login.html'">Sair da Conta</button>
+      </aside>
 
-  <section class="conteudo">
-    <form>
-      <fieldset>
-        <legend>Dados Pessoais</legend>
-        <label>Nome Completo
-          <div style="display: flex; gap: 10px; align-items: center;">
-            <input type="text" id="nomeCompleto" value="" disabled />
-          </div>
-        </label>
+      <section class="conteudo">
+        <form>
+          <fieldset>
+            <legend>Dados Pessoais</legend>
+            <label>Nome Completo
+              <div style="display: flex; gap: 10px; align-items: center;">
+                <input type="text" id="nomeCompleto" value="" disabled />
+              </div>
+            </label>
 
-        <label>E-mail
-          <input type="email"  id="email" value="" disabled/>
-        </label>
+            <label>E-mail
+              <input type="email" id="email" value="" disabled />
+            </label>
 
-        <label>Data de Nascimento
-          <input type="date" id="dataNasc" value="" disabled/>
-        </label>
+            <label>Data de Nascimento
+              <input type="date" id="dataNasc" value="" disabled />
+            </label>
 
-        <label>Sexo
-          <input type="text" id="genero" value="" disabled />
-        </label>
-      </fieldset>
-    </form>
-  </section>
-</main>
-
+            <label>Sexo
+              <input type="text" id="genero" value="" disabled />
+            </label>
+          </fieldset>
+        </form>
+      </section>
+    </main>
+  </main>
   <footer>
-    <p>&copy; Copyright 2025 Black Sheep</p>  
+    <p>&copy; Copyright 2025 Black Sheep</p>
   </footer>
+
   <script type="module" src="/view/script/carregarUsuario.ts"></script>
   <link rel="stylesheet" href="/view/css/botaoTopo.css">
   <script src="/view/script/botaoTopo.js"></script>
 </body>
+
 </html>

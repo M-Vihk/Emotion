@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../css/DiarioDigital.css">
   <link rel="icon" type="png" href="../img/SolIcone.png">
 </head>
+
 <body>
   <header>
     <div class="logo">
@@ -18,16 +19,17 @@
       <a href="./relatorio.html">Estatísticas</a>
       <a href="DiarioDigital.html">Diário</a>
       <a href="TelaUsuario.html">Usuário</a>
+      <a href="Sobre.html">Sobre</a>
     </nav>
   </header>
 
   <main>
     <div class="novo-diario-container"></div>
-    
+
     <div class="diario" id="diario-container">
       <h1>Diário Virtual</h1>
-      <input type="text" id="titulo-diario" placeholder="Título do Diário" 
-      style="font-size: 1.2rem; padding: 10px; margin-bottom: 10px; border-radius: 8px; border: 1px solid #ccc; width: 100%;">
+      <input type="text" id="titulo-diario" placeholder="Título do Diário"
+        style="font-size: 1.2rem; padding: 10px; margin-bottom: 10px; border-radius: 8px; border: 1px solid #ccc; width: 100%;">
 
       <label for="entry-date">Data:</label>
       <input type="date" id="entry-date" name="entry-date" required>
@@ -43,7 +45,7 @@
       <button id="excluir-todos" style="margin-top: 10px;">Excluir Todos</button>
     </div>
   </main>
-  
+
   <footer>
     <p>&copy; Copyright 2025 Black Sheep</p>
   </footer>
@@ -51,4 +53,5 @@
   <script src="/view/script/botaoTopo.js"></script>
   <script type="module" src="/view/script/salvarDiario.ts"></script>
 </body>
+
 </html>

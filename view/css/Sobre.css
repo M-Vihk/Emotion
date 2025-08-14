@@ -1,0 +1,70 @@
+@import url('./TelaUsuario.css'); /* Importa seu CSS atual para manter cores e layout */
+
+/* Ajustes específicos para a página Sobre */
+.conteudo p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.conteudo ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.conteudo ul li {
+  margin-bottom: 0.5rem;
+}
+
+aside p {
+  text-align: center;
+  line-height: 1.4;
+}
+
+.carrossel {
+  position: relative;
+  width: 100%;
+  max-width: 250px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  transition: opacity 0.5s;
+  flex: 0 0 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 120px;
+
+}
+
+/* Botões de navegação */
+.carrossel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.prev { left: 5px; }
+.next { right: 5px; }
+
+.carrossel button:hover {
+  background: rgba(0,0,0,0.6);
+}
+
