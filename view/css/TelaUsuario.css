@@ -1,4 +1,35 @@
-/* Para resetar as configurações da página */
+:root {
+  --cor-fundo-principal: rgba(255, 255, 255, 0.723);
+  --cor-texto-principal: #2f5f98;
+  --cor-header-fundo: #9cccd5;
+  --cor-borda-header: #ccc;
+  --cor-nav-texto: #3178c6;
+  --cor-hover-fundo: rgba(255, 255, 255, 0.723);
+  --cor-hover-texto: #3178c6;
+  --cor-caixa-fundo: #ffeefe;
+  --cor-caixa-texto: #2f5f98;
+  --cor-sombra: rgba(0, 0, 0, 0.5);
+  --cor-titulo-secundario: #0b0e13;
+  --cor-input-desativado-fundo: #f0d9f3;
+  --cor-input-desativado-texto: #aaa;
+  --cor-btn-editar-borda: #2f5f98;
+  --cor-btn-editar-texto: #2f5f98;
+  --cor-btn-editar-hover-fundo: #2f5f98;
+  --cor-btn-editar-hover-texto: #fff;
+  --cor-botao-submit-fundo: #0099dd;
+  --cor-botao-submit-hover: #0077aa;
+  --cor-botao-submit-texto: #ffdd78;
+  --cor-btn-alterar-fundo: #ffffff;
+  --cor-btn-alterar-borda: #2f5f98;
+  --cor-btn-alterar-texto: #2f5f98;
+  --cor-btn-alterar-hover-fundo: #2f5f98;
+  --cor-btn-alterar-hover-texto: #fff;
+  --cor-btn-sair-fundo: #dd3c3c;
+  --cor-btn-sair-hover: #b82e2e;
+  --cor-btn-sair-texto: #fff;
+}
+
+/* RESET */
 * {
   margin: 0;
   padding: 0;

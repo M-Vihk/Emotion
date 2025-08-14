@@ -7,6 +7,7 @@
     <title>Sobre - Diário Virtual</title>
     <link rel="stylesheet" href="../css/Sobre.css">
     <link rel="stylesheet" href="/view/css/botaoTopo.css">
+    
     <link rel="icon" type="png" href="../img/SolIcone.png">
 </head>
 
@@ -82,46 +83,8 @@
         <p>&copy; 2025 Black Sheep - Todos os direitos reservados.</p>
     </footer>
 
-    <script>
-        const slidesContainer = document.querySelector('.slides');
-        const slides = document.querySelectorAll('.slide');
-        const prevBtn = document.querySelector('.prev');
-        const nextBtn = document.querySelector('.next');
-        let indice = 0;
-        let autoPlay;
-        
-        function mostrarSlide(index) {
-            if (index < 0) indice = slides.length - 1;
-            else if (index >= slides.length) indice = 0;
-            else indice = index;
-
-            slidesContainer.style.transform = `translateX(${-indice * 100}%)`;
-        }
-
-        function iniciarAutoPlay() {
-            // limpa intervalo antigo e inicia novo
-            clearInterval(autoPlay);
-            autoPlay = setInterval(() => {
-                mostrarSlide(indice + 1);
-            }, 5000);
-        }
-
-        prevBtn.addEventListener('click', () => {
-            mostrarSlide(indice - 1);
-            iniciarAutoPlay(); // reseta tempo
-        });
-
-        nextBtn.addEventListener('click', () => {
-            mostrarSlide(indice + 1);
-            iniciarAutoPlay(); // reseta tempo
-        });
-
-        // inicia ao carregar
-        iniciarAutoPlay();
-        mostrarSlide(indice);
-    </script>
-<script src="/view/script/botaoTopo.js"></script>
-<script type="module" src="/view/script/validarCadastro.ts"></script>
+    <script src="/view/script/carrosel.js"></script>
+    <script src="/view/script/botaoTopo.js"></script>
 </body>
 
 </html>
