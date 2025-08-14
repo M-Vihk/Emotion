@@ -80,15 +80,41 @@ A seguir, uma lista detalhada de cada funcionalidade:
 - Acesso restrito apenas ao usuário autenticado.
 - Controle de sessão para evitar acessos não autorizados.
 
-6. Interface Web
-- Layout responsivo adaptado para desktop e dispositivos móveis.
-- Navegação intuitiva com páginas separadas para **Página Inicial**, **Diário Digital** e **Perfil**.
-- Sistema construído para fácil manutenção e escalabilidade.
-
-7. Integração com Banco de Dados
+6. Integração com Banco de Dados
 - Script SQL pronto para criar todas as tabelas necessárias.
 - Estrutura compatível com PostgreSQL (ou outro SGBD relacional).
 - Operações de inserção, leitura e atualização de registros.
+
+## Funcionalidades Detalhadas (Frontend)
+
+### Páginas
+- **Página Inicial** — `view/html/PaginaInicial.html`  
+  Apresentação geral do projeto, navegação para as demais páginas.
+- **Diário Digital** — `view/html/DiarioDigital.html`  
+  Registro de emoções, listagem e histórico.
+- **Sobre** — `view/html/Sobre.html`  
+  Informações do projeto e equipe, carrossel de imagens.
+- **Tela do Usuário** — `view/html/TelaUsuario.html`  
+  Exibição de informações do usuário logado.
+- **Autenticação** — `view/html/TelaDeLogin.html`, `view/html/TelaDeCadastro.html`, `view/html/TelaDeEntrar.html`  
+  Fluxo de login/cadastro/entrada.
+
+### Estilos (CSS)
+- **Estilo por página** — `view/css/*.css` (ex.: `PaginaInicial.css`, `DiarioDigital.css`, `Sobre.css`, `TelaUsuario.css`, etc.).
+- **Responsividade global** — `view/css/responsividade.css`  
+  Regras de _breakpoints_ para empilhamento de containers, ajustes de header, navegação e tipografia em **≤768px**.
+- **Botão “Voltar ao Topo”** — `view/css/botaoTopo.css`  
+  Estilização do botão fixo no canto inferior direito.
+
+### Scripts (TS/JS)
+- **Botão “Voltar ao Topo”** — `view/script/botaoTopo.js`  
+  Cria dinamicamente o botão ⬆, exibe ao rolar a página e realiza `window.scrollTo({ top: 0, behavior: "smooth" })` ao clicar.  
+  > Já está importado nas páginas: `PaginaInicial.html`, `DiarioDigital.html`, `Sobre.html`, `TelaUsuario.html`.
+- **Validações/Fluxos** (TypeScript, empacotados pelo Parcel):  
+  - `view/script/validarRegistro.ts`
+  - `view/script/salvarDiario.ts`
+  - `view/script/validarCadastro.ts`
+  - `view/script/carregarUsuario.ts`
 
 ## Banco de Dados
 
@@ -123,11 +149,18 @@ Certifique-se de executar esse script em seu SGBD (ex: PostgreSQL) para criar as
 - `npx tsc` – Compila os arquivos TypeScript
 - `npm start` – (se configurado no `package.json`)
 
-## Observações
+## Integrantes da Equipe
 
-- Certifique-se de configurar corretamente a conexão com o banco de dados no código.
-- O projeto ainda pode estar em desenvolvimento, então revise os caminhos e arquivos principais.
+- Deyvison Samuel Gomes do Nascimento – Graduando do curso de Análise e Desenvolvimento de Sistemas do IFPI Campus Piripiri.
+
+- Maria Vitória da Silva Araújo – Graduanda do curso de Análise e Desenvolvimento de Sistemas do IFPI Campus Piripiri.
+
+- Maria Yasmin Oliveira Mélo – Graduanda do curso de Análise e Desenvolvimento de Sistemas do IFPI Campus Piripiri.
+
+- Rauan dos Santos Bandeira – Graduando do curso de Análise e Desenvolvimento de Sistemas do IFPI Campus Piripiri.
 
 ## Licença
 
 Este projeto é livre para fins educacionais.
+
+
