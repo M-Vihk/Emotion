@@ -57,6 +57,7 @@ CREATE TABLE relatos (
     FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
 );
 
+-- Tabela para sugestões de atividades e práticas para lidar com emoções
 CREATE TABLE sugestoes (
     id_sugestao SERIAL PRIMARY KEY,
     sugestoes_alegria TEXT,
