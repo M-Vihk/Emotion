@@ -83,27 +83,7 @@ footer {
     margin-top: auto;
 }
 
-/* CSS para adaptar a telas pequenas:*/
-@media (max-width: 768px) {
-    header {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 10px 15px;
-      font-size: 160%; /* Reduz o tamanho do texto */
-    }
-  
-    .logo {
-        display: flex;
-        justify-content: center;  /* Centraliza horizontalmente */
-        align-items: center;      /* Centraliza verticalmente (se necessário) */
-        width: 100%;
-      }
-    
-      .logo img {
-        height: 80px;
-      }
-  
-  }
+
  
 /*Parte do main: */
 

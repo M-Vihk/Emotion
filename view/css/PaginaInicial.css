@@ -159,54 +159,7 @@ footer p {
   text-align: center;
 }
 
-/* RESPONSIVIDADE */
-@media (max-width: 768px) {
-  header {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 10px 15px;
-      font-size: 160%;
-  }
 
-  .logo {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-  }
-  
-  .logo img {
-      height: 80px;
-  }
-
-  nav {
-      width: 100%;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      height: auto;
-      padding: 10px 0;
-  }
-
-  nav a {
-      font-size: 90%;
-      padding: 0.4rem 0.8rem;
-  }
-
-  /* Aqui é o que vai empilhar os containers */
-  .container1 {
-      flex-direction: column; /* agora ficam um em cima do outro */
-      align-items: center;    /* centraliza no eixo transversal */
-      gap: 20px;               /* espaço entre eles */
-      padding: 1.5rem;         /* reduz padding para caber melhor */
-      
-  }
-
-  aside, .conteudo {
-      max-width: 100%;  /* ocupar toda a largura no mobile */
-      flex: none;       /* remove comportamento flex fixo */
-  }
-}
 
 .boneca{
   height: 500px;
