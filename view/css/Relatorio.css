@@ -1,21 +1,44 @@
+:root {
+  --cor-header-fundo: #9cccd5;
+  --cor-header-texto: #3178c6;
+  --cor-borda-header: #ccc;
+  --cor-hover-fundo: rgba(255, 255, 255, 0.723);
+  --cor-hover-texto: #3178c6;
+  --cor-titulo: #2f5f98;
+  --cor-botao-entrar-fundo: #2d8bba;
+  --cor-botao-entrar-hover: #1c5571;
+  --cor-botao-cadastrar-hover: #ffdd78;
+  --cor-botao-texto: #ffdd78;
+  --cor-container-fundo: #ffeefe;
+  --cor-container-texto: #2f5f98;
+  --cor-input-fundo: #e2ccff;
+  --cor-input-texto: #3178c6;
+  --cor-input-focus-sombra: #79b8f9;
+  --cor-botao-relatorio-fundo: #0099dd;
+  --cor-botao-relatorio-hover: #0077aa;
+  --cor-relatorio-fundo: #f4faff;
+  --cor-relatorio-titulo: #3178c6;
+  --cor-relatorio-borda: #9cccd5;
+  --cor-lista-medias-fundo: #e2ccff;
+  --cor-sugestao-fundo: #ffdd78;
+  --cor-sugestao-texto: #2f5f98;
+}
+
 /* HEADER */
 header {
-  background-color: #9cccd5;
-  /* Muda a cor do fundo da header */
+  background-color: var(--cor-header-fundo);
   font-size: 200%;
-  /* Muda o tamanho do texto da header */
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 30px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--cor-borda-header);
 }
 
 .logo img {
   height: 100px;
 }
-
 
 * {
   margin: 0;
@@ -27,11 +50,9 @@ nav {
   display: flex;
   align-items: center;
   gap: 30px;
-  /* Ajusta o espaçamento horizontal entre as palavras*/
   height: 100px;
-  /* Ajusta o espaçamento vertical das palavras com o header*/
   justify-content: right;
-  background-color: #9cccd5;
+  background-color: var(--cor-header-fundo);
   text-align: center;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -47,7 +68,7 @@ nav a {
   text-decoration: none;
   position: relative;
   cursor: pointer;
-  color: #3178c6;
+  color: var(--cor-header-texto);
   font-size: 100%;
   padding: 0.5rem 1rem;
   transition: all 0.3s ease;
@@ -55,24 +76,17 @@ nav a {
 }
 
 nav a:hover {
-  background-color: rgba(255, 255, 255, 0.723);
-  color: #3178c6;
+  background-color: var(--cor-hover-fundo);
+  color: var(--cor-hover-texto);
   border-radius: 40px;
   box-shadow: 0 0 20px white;
-}
-
-.logo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
 }
 
 a {
   text-decoration: none;
   position: relative;
   cursor: pointer;
-  color: #3178c6;
+  color: var(--cor-header-texto);
   font-size: 100%;
   padding: 0.5rem 1rem;
   transition: all 0.3s ease;
@@ -80,9 +94,8 @@ a {
 }
 
 a:hover {
-  background-color: rgba(255, 255, 255, 0.723);
-  color: #3178c6;
-  /* A cor do fundo da header, pra contrastar */
+  background-color: var(--cor-hover-fundo);
+  color: var(--cor-hover-texto);
   border-radius: 40px;
   box-shadow: 0 0 20px white;
 }
@@ -101,67 +114,60 @@ main {
 }
 
 footer {
-  background-color: #9cccd5;
-  color: #3178c6;
+  background-color: var(--cor-header-fundo);
+  color: var(--cor-header-texto);
   text-align: center;
   padding: 20px;
   font-size: 0.9rem;
   margin-top: auto;
 }
 
-/* CSS para adaptar a telas pequenas:*/
+/* CSS para adaptar a telas pequenas */
 @media (max-width: 768px) {
   header {
     flex-direction: column;
     align-items: flex-start;
     padding: 10px 15px;
     font-size: 160%;
-    /* Reduz o tamanho do texto */
   }
 
   .logo {
     display: flex;
     justify-content: center;
-    /* Centraliza horizontalmente */
     align-items: center;
-    /* Centraliza verticalmente (se necessário) */
     width: 100%;
   }
 
   .logo img {
     height: 80px;
   }
-
 }
 
-/*Parte do main: */
-
+/* Parte do main */
 h1 {
   text-align: center;
   margin-top: 20px;
-  color: #2f5f98;
+  color: var(--cor-titulo);
   font-size: 50px;
 }
 
 h2 {
   text-align: justify;
   margin: 20px;
-  color: #2f5f98;
+  color: var(--cor-titulo);
   font-size: 20px;
 }
 
 .botao-cadastrar:hover,
 .botao-entrar:hover {
-  background-color: #ffdd78;
+  background-color: var(--cor-botao-cadastrar-hover);
 }
 
 .botoes {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* centraliza na horizontal */
   gap: 8px;
-  /* espaço entre os botões */
   margin-top: 30px;
 }
 
@@ -170,8 +176,8 @@ h2 {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background-color: #2d8bba;
-  color: #ffdd78;
+  background-color: var(--cor-botao-entrar-fundo);
+  color: var(--cor-botao-texto);
   padding: 10px 15px;
   border-radius: 30px;
   text-decoration: none;
@@ -188,10 +194,10 @@ h2 {
 .container {
   width: 400px;
   margin: 50px auto;
-  background-color: #ffeefe;
+  background-color: var(--cor-container-fundo);
   padding: 30px;
   border-radius: 20px;
-  color: #2f5f98;
+  color: var(--cor-container-texto);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
@@ -210,25 +216,23 @@ h2 {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.3s ease;
   outline: none;
-  background-color: #e2ccff;
-  color: #3178c6;
-
+  background-color: var(--cor-input-fundo);
+  color: var(--cor-input-texto);
 }
 
 .container input[type="email"]:focus,
 .container input[type="password"]:focus {
-  box-shadow: 0 0 8px #79b8f9;
+  box-shadow: 0 0 8px var(--cor-input-focus-sombra);
 }
 
 button.botao-entrar {
   all: unset;
-  /* Remove estilo padrão do botão */
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background-color: #2d8bba;
-  color: #ffdd78;
+  background-color: var(--cor-botao-entrar-fundo);
+  color: var(--cor-botao-texto);
   padding: 10px 15px;
   border-radius: 30px;
   font-weight: bold;
@@ -241,15 +245,15 @@ button.botao-entrar {
 }
 
 button.botao-entrar:hover {
-  background-color: #1c5571;
+  background-color: var(--cor-botao-entrar-hover);
 }
 
 /* BOTÕES */
 #gerar-relatorio {
   margin: 2rem;
   align-self: center;
-  background-color: #0099dd;
-  color: #ffdd78;
+  background-color: var(--cor-botao-relatorio-fundo);
+  color: var(--cor-botao-texto);
   border: none;
   padding: 0.8rem 2rem;
   border-radius: 25px;
@@ -259,60 +263,59 @@ button.botao-entrar:hover {
   transition: background 0.3s;
 }
 
-
 #gerar-relatorio:hover {
-  background-color: #0077aa;
+  background-color: var(--cor-botao-relatorio-hover);
 }
 
 /* Resultados do relatório */
 #resultado-relatorio {
-    background-color: #f4faff; /* Fundo suave */
-    border-radius: 15px;
-    padding: 20px;
-    width: 400px;
-    margin: 20px auto;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
-    color: #2f5f98;
-    font-family: 'Segoe UI', sans-serif;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  background-color: var(--cor-relatorio-fundo);
+  border-radius: 15px;
+  padding: 20px;
+  width: 400px;
+  margin: 20px auto;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+  color: var(--cor-titulo);
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 /* Títulos internos */
 #resultado-relatorio h3 {
-    font-size: 1.3rem;
-    color: #3178c6;
-    border-bottom: 2px solid #9cccd5;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
+  font-size: 1.3rem;
+  color: var(--cor-relatorio-titulo);
+  border-bottom: 2px solid var(--cor-relatorio-borda);
+  padding-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 /* Lista de médias */
 #lista-medias {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 #lista-medias li {
-    background-color: #e2ccff;
-    margin-bottom: 8px;
-    padding: 8px 12px;
-    border-radius: 10px;
-    font-size: 1rem;
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
+  background-color: var(--cor-lista-medias-fundo);
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
 }
 
 /* Sugestão de texto */
 #sugestao {
-    background-color: #ffdd78;
-    color: #2f5f98;
-    padding: 12px;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-weight: 500;
-    box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
+  background-color: var(--cor-sugestao-fundo);
+  color: var(--cor-sugestao-texto);
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
 }
